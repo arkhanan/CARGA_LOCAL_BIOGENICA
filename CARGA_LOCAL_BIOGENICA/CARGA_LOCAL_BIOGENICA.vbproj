@@ -147,12 +147,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database1.mdf">
+    <Content Include="DBProyecto.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Database1_log.ldf">
+    <Content Include="DBProyecto_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Database1.mdf</DependentUpon>
+      <DependentUpon>DBProyecto.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
