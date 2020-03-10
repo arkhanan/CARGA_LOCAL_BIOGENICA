@@ -15,6 +15,7 @@
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -66,6 +66,7 @@
     <Reference Include="DevExpress.Printing.v16.1.Core" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -93,6 +94,9 @@
     <Compile Include="Consultar.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="DLL\Miselaneo.vb" />
+    <Compile Include="DLL\SQL.vb" />
+    <Compile Include="DLL\Variables Globales.vb" />
     <Compile Include="Exportar.Designer.vb">
       <DependentUpon>Exportar.vb</DependentUpon>
     </Compile>
@@ -129,6 +133,7 @@
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -154,6 +159,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DB_Proyecto.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\icons8-exportar-251.png" />
+    <None Include="Resources\icons8-documentos-25.png" />
+    <None Include="Resources\icons8-exportación-de-base-de-datos-25.png" />
+    <None Include="Resources\icons8-llamar-en-la-cama-25.png" />
+    <None Include="Resources\icons8-importar-csv-25.png" />
+    <None Include="Resources\icons8-impresora-de-etiquetas-25.png" />
+    <None Include="Resources\icons8-exportar-25.png" />
+    <None Include="Resources\icons8-acercar-25.png" />
+    <None Include="Resources\icons8-acercar-80.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

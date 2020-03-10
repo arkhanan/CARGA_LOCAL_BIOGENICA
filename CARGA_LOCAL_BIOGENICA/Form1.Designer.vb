@@ -39,7 +39,8 @@
         '
         'WindowsUIButtonPanel1
         '
-        Me.WindowsUIButtonPanel1.Buttons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraBars.Docking2010.WindowsUIButton(), New DevExpress.XtraBars.Docking2010.WindowsUIButton()})
+        Me.WindowsUIButtonPanel1.ButtonInterval = 50
+        Me.WindowsUIButtonPanel1.Buttons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraBars.Docking2010.WindowsUIButton("Consultar", Global.CARGA_LOCAL_BIOGENICA.My.Resources.Resources.icons8_acercar_25, -1, DevExpress.XtraBars.Docking2010.ImageLocation.[Default], DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", True, -1, True, Nothing, True, False, True, Nothing, "BTConsultar", -1, False, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Exportar", Global.CARGA_LOCAL_BIOGENICA.My.Resources.Resources.icons8_documentos_25, -1, DevExpress.XtraBars.Docking2010.ImageLocation.[Default], DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", True, -1, True, Nothing, True, False, True, Nothing, "BTExportar", -1, False, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Salir", Global.CARGA_LOCAL_BIOGENICA.My.Resources.Resources.icons8_exportar_251, -1, DevExpress.XtraBars.Docking2010.ImageLocation.[Default], DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", True, -1, True, Nothing, True, False, True, Nothing, "BTSalir", -1, False, False)})
         Me.WindowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WindowsUIButtonPanel1.Location = New System.Drawing.Point(0, 0)
         Me.WindowsUIButtonPanel1.Name = "WindowsUIButtonPanel1"
@@ -49,7 +50,8 @@
         '
         'WindowsUIButtonPanel2
         '
-        Me.WindowsUIButtonPanel2.Buttons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraBars.Docking2010.WindowsUIButton(), New DevExpress.XtraBars.Docking2010.WindowsUIButton()})
+        Me.WindowsUIButtonPanel2.ButtonInterval = 50
+        Me.WindowsUIButtonPanel2.Buttons.AddRange(New DevExpress.XtraEditors.ButtonPanel.IBaseButton() {New DevExpress.XtraBars.Docking2010.WindowsUIButton("Imprimir Etiqueta", Global.CARGA_LOCAL_BIOGENICA.My.Resources.Resources.icons8_impresora_de_etiquetas_25, -1, DevExpress.XtraBars.Docking2010.ImageLocation.[Default], DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", True, -1, True, Nothing, True, False, True, Nothing, "BTEtiqueta", -1, False, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Importar", Global.CARGA_LOCAL_BIOGENICA.My.Resources.Resources.icons8_importar_csv_25, -1, DevExpress.XtraBars.Docking2010.ImageLocation.[Default], DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", True, -1, True, Nothing, True, False, True, Nothing, "BTImportar", -1, False, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Guardar Paciente", Global.CARGA_LOCAL_BIOGENICA.My.Resources.Resources.icons8_llamar_en_la_cama_25, -1, DevExpress.XtraBars.Docking2010.ImageLocation.[Default], DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", True, -1, True, Nothing, True, False, True, Nothing, "BTPaciente", -1, False, False), New DevExpress.XtraBars.Docking2010.WindowsUIButton("Exportar", Global.CARGA_LOCAL_BIOGENICA.My.Resources.Resources.icons8_exportación_de_base_de_datos_25, -1, DevExpress.XtraBars.Docking2010.ImageLocation.[Default], DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", True, -1, True, Nothing, True, False, True, Nothing, "BTExportar", -1, False, False)})
         Me.WindowsUIButtonPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WindowsUIButtonPanel2.Location = New System.Drawing.Point(0, 0)
         Me.WindowsUIButtonPanel2.Name = "WindowsUIButtonPanel2"
