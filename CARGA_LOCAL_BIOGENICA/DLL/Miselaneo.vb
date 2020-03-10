@@ -285,30 +285,30 @@ Public Class Miselaneo
         updateRichTextBox(rtbLog, StrDup(30, "-") & vbCrLf)
     End Sub
 
-    Function hddID() As String
-        Try
-            Dim strSN As String = ""
-            Dim strQuery As String = "SELECT * FROM Win32_PhysicalMedia"
-            Dim query As ManagementObjectSearcher = New ManagementObjectSearcher(strQuery)
-            Dim i As Integer = 0
+    'Function hddID() As String
+    '    Try
+    '        Dim strSN As String = ""
+    '        Dim strQuery As String = "SELECT * FROM Win32_PhysicalMedia"
+    '        Dim query As ManagementObjectSearcher = New ManagementObjectSearcher(strQuery)
+    '        Dim i As Integer = 0
 
-            For Each mo As ManagementObject In query.[Get]()
+    '        For Each mo As ManagementObject In query.[Get]()
 
 
-                If mo("SerialNumber") IsNot Nothing Then
-                    '    strSN = strSN & " " & "N/A Serial"
-                    'Else
-                    strSN = strSN & "" & mo("SerialNumber").ToString()
-                End If
-                i += 1
-            Next
+    '            If mo("SerialNumber") IsNot Nothing Then
+    '                '    strSN = strSN & " " & "N/A Serial"
+    '                'Else
+    '                strSN = strSN & "" & mo("SerialNumber").ToString()
+    '            End If
+    '            i += 1
+    '        Next
 
-            Return Trim(strSN)
+    '        Return Trim(strSN)
 
-        Catch ex As Exception
-            Return ""
-        End Try
-    End Function
+    '    Catch ex As Exception
+    '        Return ""
+    '    End Try
+    'End Function
 
     Public Function CpuId() As String
         Dim computer As String = "."
