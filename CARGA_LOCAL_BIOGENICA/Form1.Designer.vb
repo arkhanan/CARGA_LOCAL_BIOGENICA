@@ -24,14 +24,17 @@
     ''' the contents of this method with the code editor.
     ''' </summary>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.WindowsUIButtonPanel1 = New DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel()
         Me.WindowsUIButtonPanel2 = New DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.AdornerUIManager1 = New DevExpress.Utils.VisualEffects.AdornerUIManager(Me.components)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        CType(Me.AdornerUIManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'WindowsUIButtonPanel1
@@ -71,11 +74,15 @@
         Me.SplitContainer1.SplitterDistance = 382
         Me.SplitContainer1.TabIndex = 2
         '
+        'AdornerUIManager1
+        '
+        Me.AdornerUIManager1.Owner = Me
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1018, 622)
+        Me.ClientSize = New System.Drawing.Size(1018, 655)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -83,6 +90,7 @@
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        CType(Me.AdornerUIManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -91,6 +99,7 @@
     Friend WithEvents WindowsUIButtonPanel1 As DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel
     Friend WithEvents WindowsUIButtonPanel2 As DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel
     Friend WithEvents SplitContainer1 As SplitContainer
+    Friend WithEvents AdornerUIManager1 As DevExpress.Utils.VisualEffects.AdornerUIManager
 
 #End Region
 

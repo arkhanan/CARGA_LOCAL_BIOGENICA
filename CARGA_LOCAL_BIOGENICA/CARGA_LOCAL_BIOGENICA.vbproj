@@ -72,6 +72,18 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultar.Designer.vb">
+      <DependentUpon>Consultar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultar.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Exportar.Designer.vb">
+      <DependentUpon>Exportar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Exportar.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +95,12 @@
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <EmbeddedResource Include="Consultar.resx">
+      <DependentUpon>Consultar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Exportar.resx">
+      <DependentUpon>Exportar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
