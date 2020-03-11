@@ -20,6 +20,7 @@ Partial Class Importar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.LookUpEdit1 = New DevExpress.XtraEditors.LookUpEdit()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.LookUpEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -31,10 +32,20 @@ Partial Class Importar
         Me.LookUpEdit1.Size = New System.Drawing.Size(100, 20)
         Me.LookUpEdit1.TabIndex = 0
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(440, 117)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Importar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.LookUpEdit1)
         Me.Name = "Importar"
         Me.Size = New System.Drawing.Size(993, 689)
@@ -44,4 +55,5 @@ Partial Class Importar
     End Sub
 
     Friend WithEvents LookUpEdit1 As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents Button1 As Button
 End Class
