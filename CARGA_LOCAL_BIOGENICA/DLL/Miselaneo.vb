@@ -5,7 +5,9 @@ Imports System.Security.Cryptography
 Imports System.Text
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraGauges.Win.Gauges.State
-Imports Spire.Xls
+Imports System.Data.OleDb
+
+Imports EXCEL = Microsoft.Office.Interop.Excel
 
 Public Class Miselaneo
     Public Delegate Sub dlgUpdateUI(ByVal rtb As RichTextBox, ByVal text As String, ByVal col As Color)
@@ -356,42 +358,84 @@ Public Class Miselaneo
     End Function
 
 
-    Private Sub CsvToXml(_inputFile As String, _dataName As String, _separator As Char, _outputFile As String, Optional _fieldnames() As String = Nothing)
-        Dim dt As New DataTable(_dataName)
-        Dim firstRow As Boolean = True
 
-        Using sr As New StreamReader(_inputFile)
-            While Not (sr.EndOfStream)
-                Dim fields() As String = sr.ReadLine.Split(_separator)
 
-                If firstRow Then
-                    For ii As Integer = 0 To fields.Count - 1
-                        Dim _fName As String = ""
-                        If IsNothing(_fieldnames) Then
-                            _fName = "Field" & ii.ToString("000")
-                        Else
-                            _fName = _fieldnames(ii)
-                        End If
-                        dt.Columns.Add(_fName)
-                    Next
-                    firstRow = False
-                End If
 
-                dt.Rows.Add(fields)
+
+    'Shared Sub Main(ByVal args() As String)
+    '    Dim workbook As New Workbook()
+    '    workbook.LoadFromFile("..\ExceltoCSV.xls ")
+    '    Dim sheet As Worksheet = workbook.Worksheets(0)
+    '    sheet.SaveToFile("sample.csv", ",", Encoding.UTF8)
+
+    'End Sub
+
+    Public Sub ExcelToCSV(sourceFile As String, destinationFile As String)
+        Dim officeType As Type = Type.GetTypeFromProgID("Excel.Application")
+        If officeType Is Nothing Then
+        Else
+            Dim app As New Excel.Application()
+            app.DisplayAlerts = False
+            ' Open Excel Workbook for conversion.
+            Dim excelWorkbook As Excel.Workbook = app.Workbooks.Open(sourceFile)
+            ' Save file as CSV file.
+            excelWorkbook.SaveAs(destinationFile, EXCEL.XlFileFormat.xlCSV)
+
+            ' Close the Workbook.
+            excelWorkbook.Close()
+            ' Quit Excel Application.
+            app.Quit()
+        End If
+    End Sub
+
+
+    Public Function Read_CSV(ByVal FileName As String, ByVal FilePath As String) As DataTable
+        '----------------------------------------------------
+        'Reads a csv file into a datatable, with the first row as column headers
+
+        Dim myFile As String = FilePath & "\" & FileName
+        Dim myTable As DataTable = New DataTable("MyTable")
+        Dim i As Integer
+        Dim myRow As DataRow
+        Dim myColumn As DataColumn
+        Dim MyType As String
+        Dim fieldValues As String()
+
+        Dim ColumnNames As String()
+        Dim ColumnTypes As String()
+        Dim myReader As New StreamReader(myFile)
+        Try
+
+            'Open file and read first two lines
+            ColumnNames = myReader.ReadLine().Split(",")
+
+            'Create data columns named according to first line of data, with type according to second line
+            For i = 0 To ColumnNames.Length() - 1
+                myColumn = New DataColumn()
+                'MyType = "System." & ColumnTypes(i)
+                'myColumn.DataType = System.Type.GetType(MyType)
+
+                myColumn.ColumnName = ColumnNames(i)
+                myTable.Columns.Add(myColumn)
+            Next
+
+            'Read the body of the data to data table
+            While myReader.Peek() <> -1
+                fieldValues = myReader.ReadLine().Split(",")
+                myRow = myTable.NewRow
+                For i = 0 To fieldValues.Length() - 1
+                    myRow.Item(i) = fieldValues(i).ToString
+                Next
+                myTable.Rows.Add(myRow)
             End While
+        Catch ex As Exception
+            MsgBox("Error building datatable: " & ex.Message)
+            Return New DataTable("Empty")
+        Finally
+            myReader.Close()
+        End Try
 
-            dt.WriteXml(_outputFile)
-            dt.Dispose()
-        End Using
-    End Sub
-
-
-    Shared Sub Main(ByVal args() As String)
-        Dim workbook As New Workbook()
-        workbook.LoadFromFile("..\ExceltoCSV.xls ")
-        Dim sheet As Worksheet = workbook.Worksheets(0)
-        sheet.SaveToFile("sample.csv", ",", Encoding.UTF8)
-
-    End Sub
+        Return myTable
+    End Function
 
 End Class
