@@ -219,6 +219,29 @@ Public Class SQL
     End Sub
 
 
+    Public Sub LLENAR_CBX2(CB As ComboBox, OBTENER As String, PROCEDURE As String, Optional ByVal cParams() As SqlParameter = Nothing)
+        Conectar()
+        Dim cmd As New SqlCommand(PROCEDURE, cConnect)
+        cmd.CommandType = CommandType.StoredProcedure
+        If cParams Is Nothing = False Then
+            For i = 0 To cParams.GetLength(0) - 1
+                If cParams(i) Is Nothing = False Then
+                    cmd.Parameters.Add(cParams(i))
+                End If
+            Next
+        End If
+        Dim adapter As Data.SqlClient.SqlDataReader = Nothing
+        adapter = cmd.ExecuteReader(CommandBehavior.CloseConnection)
+        If adapter.HasRows Then
+            While adapter.Read
+                CB.Items.Add(adapter.Item(OBTENER))
+            End While
+        End If
+        Desconectar()
+        adapter.Close()
+    End Sub
+
+
     Public Function llenar_dt(procedure As String, Optional ByVal cParams() As SqlParameter = Nothing) As DataTable
         Try
             Dim dt As New DataTable

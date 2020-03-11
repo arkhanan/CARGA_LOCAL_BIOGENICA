@@ -19,6 +19,7 @@ Partial Class Consultar
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cPACIENTE_FECHA_NAC = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -39,19 +40,19 @@ Partial Class Consultar
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.cbbMunicipio = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.LookUpEdit1 = New DevExpress.XtraEditors.LookUpEdit()
+        Me.PCATESTADOSBBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CatEstadosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Cat_Estados = New CARGA_LOCAL_BIOGENICA.Cat_Estados()
-        Me.CatEstadosBindingSource = New System.Windows.Forms.BindingSource()
-        Me.PCATESTADOSBBindingSource = New System.Windows.Forms.BindingSource()
         Me.PCAT_ESTADOS_BTableAdapter = New CARGA_LOCAL_BIOGENICA.Cat_EstadosTableAdapters.pCAT_ESTADOS_BTableAdapter()
+        Me.LookUpEdit1 = New DevExpress.XtraEditors.LookUpEdit()
+        Me.LookUpEdit2 = New DevExpress.XtraEditors.LookUpEdit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.cbbMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LookUpEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Cat_Estados, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CatEstadosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PCATESTADOSBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CatEstadosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Cat_Estados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LookUpEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LookUpEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -233,13 +234,24 @@ Partial Class Consultar
         Me.Label8.TabIndex = 21
         Me.Label8.Text = "Municipio"
         '
-        'cbbMunicipio
+        'PCATESTADOSBBindingSource
         '
-        Me.cbbMunicipio.Location = New System.Drawing.Point(92, 281)
-        Me.cbbMunicipio.Name = "cbbMunicipio"
-        Me.cbbMunicipio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbbMunicipio.Size = New System.Drawing.Size(290, 20)
-        Me.cbbMunicipio.TabIndex = 23
+        Me.PCATESTADOSBBindingSource.DataMember = "pCAT_ESTADOS_B"
+        Me.PCATESTADOSBBindingSource.DataSource = Me.CatEstadosBindingSource
+        '
+        'CatEstadosBindingSource
+        '
+        Me.CatEstadosBindingSource.DataSource = Me.Cat_Estados
+        Me.CatEstadosBindingSource.Position = 0
+        '
+        'Cat_Estados
+        '
+        Me.Cat_Estados.DataSetName = "Cat_Estados"
+        Me.Cat_Estados.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'PCAT_ESTADOS_BTableAdapter
+        '
+        Me.PCAT_ESTADOS_BTableAdapter.ClearBeforeFill = True
         '
         'LookUpEdit1
         '
@@ -250,33 +262,22 @@ Partial Class Consultar
         Me.LookUpEdit1.Properties.DisplayMember = "DESCRIPCION"
         Me.LookUpEdit1.Properties.ValueMember = "CVE_ESTADO"
         Me.LookUpEdit1.Size = New System.Drawing.Size(290, 20)
-        Me.LookUpEdit1.TabIndex = 24
+        Me.LookUpEdit1.TabIndex = 22
         '
-        'Cat_Estados
+        'LookUpEdit2
         '
-        Me.Cat_Estados.DataSetName = "Cat_Estados"
-        Me.Cat_Estados.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CatEstadosBindingSource
-        '
-        Me.CatEstadosBindingSource.DataSource = Me.Cat_Estados
-        Me.CatEstadosBindingSource.Position = 0
-        '
-        'PCATESTADOSBBindingSource
-        '
-        Me.PCATESTADOSBBindingSource.DataMember = "pCAT_ESTADOS_B"
-        Me.PCATESTADOSBBindingSource.DataSource = Me.CatEstadosBindingSource
-        '
-        'PCAT_ESTADOS_BTableAdapter
-        '
-        Me.PCAT_ESTADOS_BTableAdapter.ClearBeforeFill = True
+        Me.LookUpEdit2.Location = New System.Drawing.Point(92, 281)
+        Me.LookUpEdit2.Name = "LookUpEdit2"
+        Me.LookUpEdit2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.LookUpEdit2.Size = New System.Drawing.Size(290, 20)
+        Me.LookUpEdit2.TabIndex = 23
         '
         'Consultar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.LookUpEdit2)
         Me.Controls.Add(Me.LookUpEdit1)
-        Me.Controls.Add(Me.cbbMunicipio)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.GroupBox2)
@@ -294,11 +295,11 @@ Partial Class Consultar
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.cbbMunicipio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LookUpEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Cat_Estados, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CatEstadosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PCATESTADOSBBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CatEstadosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Cat_Estados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LookUpEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LookUpEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -324,10 +325,10 @@ Partial Class Consultar
     Friend WithEvents cPACIENTE_FECHA_NAC As DateTimePicker
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents cbbMunicipio As DevExpress.XtraEditors.ComboBoxEdit
-    Friend WithEvents LookUpEdit1 As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents PCATESTADOSBBindingSource As BindingSource
     Friend WithEvents CatEstadosBindingSource As BindingSource
     Friend WithEvents Cat_Estados As Cat_Estados
     Friend WithEvents PCAT_ESTADOS_BTableAdapter As Cat_EstadosTableAdapters.pCAT_ESTADOS_BTableAdapter
+    Friend WithEvents LookUpEdit1 As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents LookUpEdit2 As DevExpress.XtraEditors.LookUpEdit
 End Class

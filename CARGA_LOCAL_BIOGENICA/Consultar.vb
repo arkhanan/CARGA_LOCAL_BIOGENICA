@@ -1,6 +1,9 @@
 ﻿Public Class Consultar
     Dim SQL As New SQL
     Dim Varios As New Miselaneo
+    Dim bEsNuevo As Boolean
+    Public IsSelected As Boolean = False
+    Public bguardo As Boolean = False
 
 
 
@@ -29,18 +32,42 @@
 
     Private Sub Consultar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        LUEEstado.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
+        LUEMunicipio.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
+        TECarga.Text = Now.ToString("ddMMyyyyHHMMss")
 
-
-        SQL.LLENAR_CBX(cbbEstado, "DESCRIPCION", "pCAT_ESTADOS_B")
 
         SQL.dataset(Cat_Estados.pCAT_ESTADOS_B, "pCAT_ESTADOS_B")
 
-
+        SQL.LLENAR_CBX(cbbEstado, "DESCRIPCION", "pCAT_ESTADOS_B")
 
 
 
     End Sub
 
+    Private Sub cbbEstado_SelectedIndexChanged(sender As Object, e As EventArgs)
+
+        If cbbEstado.SelectedIndex = -1 Then Exit Sub
+
+
+        ReDim SQL.ParametersX_Global(0)
+        SQL.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.SelectedIndex)
+
+
+
+        SQL.LLENAR_CBX2(cbbMunicipio, "DESCRIPCION", "pCAT_MUNICIPIOS_B", SQL.ParametersX_Global)
+
+    End Sub
+
+
+
+
+
+    Private Sub LUEEstado_EditValueChanged(sender As Object, e As EventArgs) Handles LUEEstado.EditValueChanged
+        ReDim SQL.ParametersX_Global(1)
+        SQL.ParametersX_Global(0) = New SqlClient.SqlParameter("@CVE_ESTADO", LUEEstado.EditValue)
+        SQL.dataset(Me.Cat_Municipios.pCAT_MUNICIPIOS_B, "pCAT_MUNICIPIOS_B", SQL.ParametersX_Global)
+    End Sub
 
 
 
@@ -92,24 +119,166 @@
         End Try
     End Sub
 
-    Private Sub cbbEstado_SelectedIndexChanged(sender As Object, e As EventArgs)
-        'If cbbEstado.SelectedIndex = -1 Then Exit Sub
 
 
-        'SQL.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.)
 
-        'SQL.LLENAR_CBX(cbbMunicipio, "DESCRIPCION", "pCAT_MUNICIPIOS_B", SQL.ParametersX_Global)
+
+    Sub Guardar()
+
+
+        Dim sDevuelveId As String
+
+        Try
+            ReDim SQL.ParametersX_Global(13)
+            '------------------------------------
+            If Trim(Me.Tag) = Nothing Then
+                SQL.ParametersX_Global(0) = New SqlClient.SqlParameter("@EsNuevo", 1)
+                SQL.ParametersX_Global(1) = New SqlClient.SqlParameter("@Nombre", Me.cNombre.Text)
+                SQL.ParametersX_Global(2) = New SqlClient.SqlParameter("@Paterno", cPaterno.Text)
+                SQL.ParametersX_Global(3) = New SqlClient.SqlParameter("@Materno", cMaterno.Text)
+                SQL.ParametersX_Global(4) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.SelectedIndex)
+                SQL.ParametersX_Global(5) = New SqlClient.SqlParameter("@Cve_Municipio", Me.cbbMunicipio.SelectedValue)
+                SQL.ParametersX_Global(6) = New SqlClient.SqlParameter("@Fecha_Nacimiento", Me.cPACIENTE_FECHA_NAC.Value)
+
+                If RadioB_M.Checked = True Then
+                    SQL.ParametersX_Global(7) = New SqlClient.SqlParameter("@Sexo", "MASCULINO")
+                Else
+                    SQL.ParametersX_Global(7) = New SqlClient.SqlParameter("@Sexo", "FEMENINO")
+                End If
+
+
+                bEsNuevo = True
+            Else
+                SQL.ParametersX_Global(0) = New SqlClient.SqlParameter("@EsNuevo", 1)
+                SQL.ParametersX_Global(1) = New SqlClient.SqlParameter("@Nombre", Me.cNombre.Text)
+                SQL.ParametersX_Global(2) = New SqlClient.SqlParameter("@Paterno", cPaterno.Text)
+                SQL.ParametersX_Global(3) = New SqlClient.SqlParameter("@Materno", cMaterno.Text)
+                SQL.ParametersX_Global(4) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.SelectedIndex)
+                SQL.ParametersX_Global(5) = New SqlClient.SqlParameter("@Cve_Municipio", Me.cbbMunicipio.SelectedValue)
+                SQL.ParametersX_Global(6) = New SqlClient.SqlParameter("@Fecha_Nacimiento", Me.cPACIENTE_FECHA_NAC.Value)
+
+                If RadioB_M.Checked = True Then
+                    SQL.ParametersX_Global(7) = New SqlClient.SqlParameter("@Sexo", "MASCULINO")
+                Else
+                    SQL.ParametersX_Global(7) = New SqlClient.SqlParameter("@Sexo", "FEMENINO")
+                End If
+
+            End If
+
+
+
+            sDevuelveId = SQL.fGuardar_O_EliminarXProcedure_DevuelveId("pCAT_PACIENTES_G", "@Parametro", SQL.ParametersX_Global, , SqlDbType.VarChar, 50)
+
+            If Trim(sDevuelveId) <> Nothing And Trim(sDevuelveId) <> "0" Then
+
+                Me.Tag = sDevuelveId
+
+                MessageBox.Show("Expediente actualizado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                bguardo = True
+
+
+            Else
+
+                MessageBox.Show("Este registro 'NO' se guardo, satisfactoriamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
+                bguardo = False
+            End If
+
+            '-------------------------------------
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+
     End Sub
 
-    Private Sub LookUpEdit1_EditValueChanged(sender As Object, e As EventArgs) Handles LookUpEdit1.EditValueChanged
 
 
-        If LookUpEdit1.SelectedText <> Nothing Then Exit Sub
 
-        ReDim SQL.ParametersX_Global(0)
-        SQL.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Estado", LookUpEdit1.EditValue)
+    Private Sub TxtAno_KeyUp(sender As Object, e As KeyEventArgs) Handles TxtAno.KeyUp
+        Dim aa = e.KeyValue
 
-        SQL.LLENAR_CBX(cbbMunicipio, "DESCRIPCION", "pCAT_MUNICIPIOS_B", SQL.ParametersX_Global)
 
+        If aa = 13 Then
+
+            Calcular_Edad()
+
+
+        End If
     End Sub
+
+    Private Sub TxtMes_Enter(sender As Object, e As EventArgs) Handles TxtMes.Enter
+        Calcular_Edad()
+    End Sub
+
+    Private Sub TxtDia_Enter(sender As Object, e As EventArgs) Handles TxtDia.Enter
+        Calcular_Edad()
+    End Sub
+
+
+    Private Sub TxtAno_LostFocus(sender As Object, e As EventArgs) Handles TxtAno.LostFocus
+        Calcular_Edad()
+    End Sub
+
+    Private Sub TxtMes_LostFocus(sender As Object, e As EventArgs) Handles TxtMes.LostFocus
+        Calcular_Edad()
+    End Sub
+
+    Private Sub TxtDia_LostFocus(sender As Object, e As EventArgs) Handles TxtDia.LostFocus
+        Calcular_Edad()
+    End Sub
+
+    Private Sub TxtAno_Click(sender As Object, e As EventArgs) Handles TxtAno.Click
+        TxtAno.SelectAll()
+    End Sub
+
+    Private Sub TxtMes_GotFocus(sender As Object, e As EventArgs) Handles TxtMes.GotFocus
+        TxtMes.SelectAll()
+    End Sub
+
+    Private Sub TxtDia_GotFocus(sender As Object, e As EventArgs) Handles TxtDia.GotFocus
+        TxtDia.SelectAll()
+    End Sub
+
+
+    Sub Calcular_Edad()
+        Dim n As Double
+        Dim s As Date
+        Dim fecha_a As Date = Now
+        Dim mes As Boolean = False
+        Dim Dia As Boolean = False
+        Dim year As Boolean = False
+        If TxtAno.Text <> "0" And TxtAno.Text <> Nothing Then
+            year = True
+            n = Val(TxtAno.Text)
+            s = DateAdd(DateInterval.Year, -n, fecha_a)
+        End If
+        If TxtMes.Text <> "0" And TxtMes.Text <> Nothing Then
+            'If year = False Then
+            mes = True
+            'Else
+            '    mes = False
+            'End If
+            n = Val(TxtMes.Text)
+            s = DateAdd(DateInterval.Month, -n, IIf(year, s, fecha_a))
+        End If
+        If TxtDia.Text <> "0" And TxtDia.Text <> Nothing Then
+            'If year = False Then
+            '    Dia = True
+            'Else
+            '    Dia = False
+            'End If
+            n = Val(TxtDia.Text)
+            s = DateAdd(DateInterval.Day, -n, IIf(year, s, IIf(mes, s, fecha_a)))
+        End If
+        If s <> Nothing Then
+            cPACIENTE_FECHA_NAC.Value = s
+        Else
+            cPACIENTE_FECHA_NAC.Value = Now
+        End If
+        IsSelected = True
+    End Sub
+
+
 End Class
