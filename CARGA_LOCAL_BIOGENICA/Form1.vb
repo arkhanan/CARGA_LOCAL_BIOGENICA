@@ -5,6 +5,8 @@ Imports DevExpress.XtraBars.Docking2010
 Partial Public Class Form1
     Dim Exportar As Exportar
     Dim Consultar As Consultar
+    Dim Importar As Importar
+    Dim sql As New SQL
     'Dim test As Tester
     'Dim test As Tester
     Dim FORMULARIO As String
@@ -25,21 +27,23 @@ Partial Public Class Form1
             Case "BTEtiqueta"
                 Select Case FORMULARIO
                     Case "EXPORTAR"
+
                     Case "CONSULTAR"
                 End Select
 
-            Case "BTImportar"
-                Select Case FORMULARIO
-                    Case "EQUIPO"
+            Case "BTProcesar"
 
-                    Case "TEST"
-                        'test.LIMPIAR()
-                End Select
 
             Case "BTPaciente"
-                Me.Dispose()
-                Me.Close()
-                RaiseEvent CERRADO()
+                Select Case FORMULARIO
+                    Case "EXPORTAR"
+                    Case "CONSULTAR"
+                End Select
+            Case "BTExportar"
+                Select Case FORMULARIO
+                    Case "EXPORTAR"
+                    Case "CONSULTAR"
+                End Select
 
         End Select
     End Sub
@@ -62,18 +66,27 @@ Partial Public Class Form1
                 FORMULARIO = "Exportar"
 
                 WindowsUIButtonPanel2.Buttons(0).Properties.Visible = False
-                WindowsUIButtonPanel2.Buttons(1).Properties.Visible = False
+                WindowsUIButtonPanel2.Buttons(1).Properties.Visible = True
                 WindowsUIButtonPanel2.Buttons(2).Properties.Visible = False
-                WindowsUIButtonPanel2.Buttons(3).Properties.Visible = True
+
             Case "BTConsultar"
                 Consultar = New Consultar
                 Consultar.Dock = DockStyle.Fill
                 panel.Controls.Add(Consultar)
                 FORMULARIO = "Consultar"
                 WindowsUIButtonPanel2.Buttons(0).Properties.Visible = True
-                WindowsUIButtonPanel2.Buttons(1).Properties.Visible = True
+                WindowsUIButtonPanel2.Buttons(1).Properties.Visible = False
                 WindowsUIButtonPanel2.Buttons(2).Properties.Visible = True
-                WindowsUIButtonPanel2.Buttons(3).Properties.Visible = False
+
+            Case "BTImportar"
+                Importar = New Importar
+                Importar.Dock = DockStyle.Fill
+                panel.Controls.Add(Importar)
+                FORMULARIO = "Exportar"
+
+                WindowsUIButtonPanel2.Buttons(0).Properties.Visible = False
+                WindowsUIButtonPanel2.Buttons(1).Properties.Visible = True
+                WindowsUIButtonPanel2.Buttons(2).Properties.Visible = False
             Case "BTSalir"
                 Me.Close()
 
@@ -181,10 +194,17 @@ Partial Public Class Form1
         panel.Controls.Add(Consultar)
         FORMULARIO = "EQUIPO"
         WindowsUIButtonPanel2.Buttons(0).Properties.Visible = True
-        WindowsUIButtonPanel2.Buttons(1).Properties.Visible = True
+        WindowsUIButtonPanel2.Buttons(1).Properties.Visible = False
         WindowsUIButtonPanel2.Buttons(2).Properties.Visible = True
-        WindowsUIButtonPanel2.Buttons(3).Properties.Visible = False
+
         panel.BringToFront()
+        'Try
+        '    sql.Conectar()
+        'Catch ex As Exception
+        '    MsgBox("Error")
+        'End Try
+
+
 
     End Sub
 

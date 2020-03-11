@@ -109,6 +109,12 @@
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
+    <Compile Include="Importar.Designer.vb">
+      <DependentUpon>Importar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Importar.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Importar.resx">
+      <DependentUpon>Importar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -152,13 +161,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB_Proyecto.mdf">
+    <Content Include="DBProyecto.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="DB_Proyecto_log.ldf">
+    <Content Include="DBProyecto_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DB_Proyecto.mdf</DependentUpon>
+      <DependentUpon>DBProyecto.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\icons8-exportación-de-base-de-datos-25%281%29.png" />
+    <None Include="Resources\icons8-proceso-25.png" />
+    <None Include="Resources\icons8-importancia-baja-50.png" />
     <None Include="Resources\icons8-exportar-251.png" />
     <None Include="Resources\icons8-documentos-25.png" />
     <None Include="Resources\icons8-exportación-de-base-de-datos-25.png" />
