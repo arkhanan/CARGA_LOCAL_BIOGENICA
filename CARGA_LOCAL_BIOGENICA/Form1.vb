@@ -35,15 +35,29 @@ Partial Public Class Form1
 
 
             Case "BTPaciente"
+
+
                 Select Case FORMULARIO
-                    Case "EXPORTAR"
+
                     Case "CONSULTAR"
+
+                        Consultar.Guardar()
+
                 End Select
+
             Case "BTExportar"
+
+
+
                 Select Case FORMULARIO
                     Case "EXPORTAR"
                     Case "CONSULTAR"
+
                 End Select
+
+
+
+
 
         End Select
     End Sub
@@ -192,7 +206,7 @@ Partial Public Class Form1
         Me.Controls.Add(panel)
         panel.Dock = DockStyle.Fill
         panel.Controls.Add(Consultar)
-        FORMULARIO = "EQUIPO"
+        FORMULARIO = "CONSULTAR"
         WindowsUIButtonPanel2.Buttons(0).Properties.Visible = True
         WindowsUIButtonPanel2.Buttons(1).Properties.Visible = False
         WindowsUIButtonPanel2.Buttons(2).Properties.Visible = True
