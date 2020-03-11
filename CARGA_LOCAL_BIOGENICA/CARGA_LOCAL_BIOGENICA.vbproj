@@ -88,6 +88,11 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cat_Estados.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cat_Estados.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Consultar.Designer.vb">
       <DependentUpon>Consultar.vb</DependentUpon>
     </Compile>
@@ -135,6 +140,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
+    <None Include="Cat_Estados.xsc">
+      <DependentUpon>Cat_Estados.xsd</DependentUpon>
+    </None>
+    <None Include="Cat_Estados.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Cat_Estados.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Cat_Estados.xss">
+      <DependentUpon>Cat_Estados.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
@@ -152,13 +169,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB_Proyecto.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DB_Proyecto_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DB_Proyecto.mdf</DependentUpon>
-    </Content>
     <None Include="Resources\icons8-exportar-251.png" />
     <None Include="Resources\icons8-documentos-25.png" />
     <None Include="Resources\icons8-exportación-de-base-de-datos-25.png" />
