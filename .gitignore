@@ -36,3 +36,5 @@ bld/
 TestResult.xml
 
 # Build Results of an ATL Project
+/CARGA_LOCAL_BIOGENICA/DB_Proyecto.mdf
+/CARGA_LOCAL_BIOGENICA/DB_Proyecto_log.ldf
