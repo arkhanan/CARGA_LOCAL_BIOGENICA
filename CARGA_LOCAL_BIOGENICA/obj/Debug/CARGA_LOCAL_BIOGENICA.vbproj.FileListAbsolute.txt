@@ -94,3 +94,4 @@ C:\Users\Hayabusa\source\repos\arkhanan\CARGA_LOCAL_BIOGENICA\CARGA_LOCAL_BIOGEN
 C:\Users\Hayabusa\source\repos\arkhanan\CARGA_LOCAL_BIOGENICA\CARGA_LOCAL_BIOGENICA\bin\Debug\es\DevExpress.Office.v16.1.Core.resources.dll
 C:\Users\Hayabusa\source\repos\arkhanan\CARGA_LOCAL_BIOGENICA\CARGA_LOCAL_BIOGENICA\bin\Debug\ja\DevExpress.Office.v16.1.Core.resources.dll
 C:\Users\Hayabusa\source\repos\arkhanan\CARGA_LOCAL_BIOGENICA\CARGA_LOCAL_BIOGENICA\bin\Debug\ru\DevExpress.Office.v16.1.Core.resources.dll
+C:\Users\Hayabusa\source\repos\arkhanan\CARGA_LOCAL_BIOGENICA\CARGA_LOCAL_BIOGENICA\obj\Debug\CARGA_LOCAL_BIOGENICA.vbproj.ResolveComReference.cache

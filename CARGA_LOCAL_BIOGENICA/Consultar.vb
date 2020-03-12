@@ -32,30 +32,29 @@
 
     Private Sub Consultar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        LUEEstado.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
-        LUEMunicipio.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
-        TECarga.Text = Now.ToString("ddMMyyyyHHMMss")
+        cbbEstado.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
+        cbbMunicipio.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
+
 
 
         SQL.dataset(Cat_Estados.pCAT_ESTADOS_B, "pCAT_ESTADOS_B")
 
-        SQL.LLENAR_CBX(cbbEstado, "DESCRIPCION", "pCAT_ESTADOS_B")
 
 
 
     End Sub
 
-    Private Sub cbbEstado_SelectedIndexChanged(sender As Object, e As EventArgs)
 
-        If cbbEstado.SelectedIndex = -1 Then Exit Sub
+    Private Sub cbbEstado_EditValueChanged(sender As Object, e As EventArgs) Handles cbbEstado.EditValueChanged
+
+
+        If cbbEstado.SelectedText <> Nothing Then Exit Sub
 
 
         ReDim SQL.ParametersX_Global(0)
-        SQL.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.SelectedIndex)
+        SQL.ParametersX_Global(0) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.EditValue)
+        SQL.dataset(Cat_Municipios.pCAT_MUNICIPIOS_B, "pCAT_MUNICIPIOS_B", SQL.ParametersX_Global)
 
-
-
-        SQL.LLENAR_CBX2(cbbMunicipio, "DESCRIPCION", "pCAT_MUNICIPIOS_B", SQL.ParametersX_Global)
 
     End Sub
 
@@ -63,11 +62,7 @@
 
 
 
-    Private Sub LUEEstado_EditValueChanged(sender As Object, e As EventArgs) Handles LUEEstado.EditValueChanged
-        ReDim SQL.ParametersX_Global(1)
-        SQL.ParametersX_Global(0) = New SqlClient.SqlParameter("@CVE_ESTADO", LUEEstado.EditValue)
-        SQL.dataset(Me.Cat_Municipios.pCAT_MUNICIPIOS_B, "pCAT_MUNICIPIOS_B", SQL.ParametersX_Global)
-    End Sub
+
 
 
 
@@ -136,8 +131,8 @@
                 SQL.ParametersX_Global(1) = New SqlClient.SqlParameter("@Nombre", Me.cNombre.Text)
                 SQL.ParametersX_Global(2) = New SqlClient.SqlParameter("@Paterno", cPaterno.Text)
                 SQL.ParametersX_Global(3) = New SqlClient.SqlParameter("@Materno", cMaterno.Text)
-                SQL.ParametersX_Global(4) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.SelectedIndex)
-                SQL.ParametersX_Global(5) = New SqlClient.SqlParameter("@Cve_Municipio", Me.cbbMunicipio.SelectedValue)
+                SQL.ParametersX_Global(4) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.EditValue)
+                SQL.ParametersX_Global(5) = New SqlClient.SqlParameter("@Cve_Municipio", Me.cbbMunicipio.EditValue)
                 SQL.ParametersX_Global(6) = New SqlClient.SqlParameter("@Fecha_Nacimiento", Me.cPACIENTE_FECHA_NAC.Value)
 
                 If RadioB_M.Checked = True Then
@@ -149,12 +144,12 @@
 
                 bEsNuevo = True
             Else
-                SQL.ParametersX_Global(0) = New SqlClient.SqlParameter("@EsNuevo", 1)
+                SQL.ParametersX_Global(0) = New SqlClient.SqlParameter("@EsNuevo", 0)
                 SQL.ParametersX_Global(1) = New SqlClient.SqlParameter("@Nombre", Me.cNombre.Text)
                 SQL.ParametersX_Global(2) = New SqlClient.SqlParameter("@Paterno", cPaterno.Text)
                 SQL.ParametersX_Global(3) = New SqlClient.SqlParameter("@Materno", cMaterno.Text)
-                SQL.ParametersX_Global(4) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.SelectedIndex)
-                SQL.ParametersX_Global(5) = New SqlClient.SqlParameter("@Cve_Municipio", Me.cbbMunicipio.SelectedValue)
+                SQL.ParametersX_Global(4) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.EditValue)
+                SQL.ParametersX_Global(5) = New SqlClient.SqlParameter("@Cve_Municipio", Me.cbbMunicipio.EditValue)
                 SQL.ParametersX_Global(6) = New SqlClient.SqlParameter("@Fecha_Nacimiento", Me.cPACIENTE_FECHA_NAC.Value)
 
                 If RadioB_M.Checked = True Then
@@ -167,7 +162,10 @@
 
 
 
-            sDevuelveId = SQL.fGuardar_O_EliminarXProcedure_DevuelveId("pCAT_PACIENTES_G", "@Parametro", SQL.ParametersX_Global, , SqlDbType.VarChar, 50)
+            sDevuelveId = SQL.fGuardar_O_EliminarXProcedure_DevuelveId("pCAT_PACIENTES_G", "@Parametro", SQL.ParametersX_Global)
+
+
+
 
             If Trim(sDevuelveId) <> Nothing And Trim(sDevuelveId) <> "0" Then
 
@@ -228,6 +226,8 @@
     Private Sub TxtDia_LostFocus(sender As Object, e As EventArgs) Handles TxtDia.LostFocus
         Calcular_Edad()
     End Sub
+
+
 
     Private Sub TxtAno_Click(sender As Object, e As EventArgs) Handles TxtAno.Click
         TxtAno.SelectAll()
