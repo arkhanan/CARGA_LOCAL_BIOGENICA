@@ -20,9 +20,8 @@ Partial Class Importar
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.TEProcesando = New DevExpress.XtraEditors.TextEdit()
         Me.TECarga = New DevExpress.XtraEditors.TextEdit()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -33,14 +32,29 @@ Partial Class Importar
         Me.LUEEstado = New DevExpress.XtraEditors.LookUpEdit()
         Me.PCATESTADOSBBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Cat_Estados = New CARGA_LOCAL_BIOGENICA.Cat_Estados()
+        Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
+        Me.CATPACIENTESBBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CAT_PACIENTES_B = New CARGA_LOCAL_BIOGENICA.CAT_PACIENTES_B()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.colId = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colESTADO = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colMUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colFECHA = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colSEXO = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colCARGA_MUESTRA = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.PCAT_ESTADOS_BTableAdapter = New CARGA_LOCAL_BIOGENICA.Cat_EstadosTableAdapters.pCAT_ESTADOS_BTableAdapter()
         Me.PCAT_MUNICIPIOS_BTableAdapter = New CARGA_LOCAL_BIOGENICA.Cat_MunicipiosTableAdapters.pCAT_MUNICIPIOS_BTableAdapter()
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CAT_PACIENTES_BTableAdapter = New CARGA_LOCAL_BIOGENICA.CAT_PACIENTES_BTableAdapters.CAT_PACIENTES_BTableAdapter()
+        Me.DxErrorProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(Me.components)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        CType(Me.TEProcesando.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TECarga.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LUEMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PCATMUNICIPIOSBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,23 +62,12 @@ Partial Class Importar
         CType(Me.LUEEstado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PCATESTADOSBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Cat_Estados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CATPACIENTESBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CAT_PACIENTES_B, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DxErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'GridControl1
-        '
-        Me.GridControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GridControl1.Location = New System.Drawing.Point(0, 0)
-        Me.GridControl1.MainView = Me.GridView1
-        Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(993, 561)
-        Me.GridControl1.TabIndex = 2
-        Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
-        '
-        'GridView1
-        '
-        Me.GridView1.GridControl = Me.GridControl1
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsView.ShowGroupPanel = False
         '
         'SplitContainer1
         '
@@ -75,6 +78,7 @@ Partial Class Importar
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.TEProcesando)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TECarga)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label3)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label1)
@@ -85,9 +89,20 @@ Partial Class Importar
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.GridControl1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(993, 689)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1354, 689)
         Me.SplitContainer1.SplitterDistance = 124
         Me.SplitContainer1.TabIndex = 8
+        '
+        'TEProcesando
+        '
+        Me.TEProcesando.Location = New System.Drawing.Point(733, 30)
+        Me.TEProcesando.Name = "TEProcesando"
+        Me.TEProcesando.Properties.Appearance.BackColor = System.Drawing.Color.Gray
+        Me.TEProcesando.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TEProcesando.Properties.Appearance.Options.UseBackColor = True
+        Me.TEProcesando.Properties.Appearance.Options.UseFont = True
+        Me.TEProcesando.Size = New System.Drawing.Size(258, 48)
+        Me.TEProcesando.TabIndex = 10
         '
         'TECarga
         '
@@ -95,7 +110,7 @@ Partial Class Importar
         Me.TECarga.Name = "TECarga"
         Me.TECarga.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TECarga.Properties.Appearance.Options.UseFont = True
-        Me.TECarga.Size = New System.Drawing.Size(404, 48)
+        Me.TECarga.Size = New System.Drawing.Size(324, 48)
         Me.TECarga.TabIndex = 8
         '
         'Label3
@@ -110,7 +125,7 @@ Partial Class Importar
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(465, 33)
+        Me.Label1.Location = New System.Drawing.Point(372, 31)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(45, 13)
         Me.Label1.TabIndex = 5
@@ -118,7 +133,7 @@ Partial Class Importar
         '
         'LUEMunicipio
         '
-        Me.LUEMunicipio.Location = New System.Drawing.Point(521, 62)
+        Me.LUEMunicipio.Location = New System.Drawing.Point(428, 60)
         Me.LUEMunicipio.Name = "LUEMunicipio"
         Me.LUEMunicipio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LUEMunicipio.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Municipio")})
@@ -141,7 +156,7 @@ Partial Class Importar
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(465, 65)
+        Me.Label2.Location = New System.Drawing.Point(372, 63)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(50, 13)
         Me.Label2.TabIndex = 6
@@ -149,7 +164,7 @@ Partial Class Importar
         '
         'LUEEstado
         '
-        Me.LUEEstado.Location = New System.Drawing.Point(521, 30)
+        Me.LUEEstado.Location = New System.Drawing.Point(428, 28)
         Me.LUEEstado.Name = "LUEEstado"
         Me.LUEEstado.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LUEEstado.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Descripcion")})
@@ -169,6 +184,102 @@ Partial Class Importar
         Me.Cat_Estados.DataSetName = "Cat_Estados"
         Me.Cat_Estados.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'GridControl1
+        '
+        Me.GridControl1.DataSource = Me.CATPACIENTESBBindingSource
+        Me.GridControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GridControl1.Location = New System.Drawing.Point(0, 0)
+        Me.GridControl1.MainView = Me.GridView1
+        Me.GridControl1.Name = "GridControl1"
+        Me.GridControl1.Size = New System.Drawing.Size(1354, 561)
+        Me.GridControl1.TabIndex = 0
+        Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'CATPACIENTESBBindingSource
+        '
+        Me.CATPACIENTESBBindingSource.DataMember = "CAT_PACIENTES_B"
+        Me.CATPACIENTESBBindingSource.DataSource = Me.CAT_PACIENTES_B
+        '
+        'CAT_PACIENTES_B
+        '
+        Me.CAT_PACIENTES_B.DataSetName = "CAT_PACIENTES_B"
+        Me.CAT_PACIENTES_B.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'GridView1
+        '
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colId, Me.colNOMBRE, Me.GridColumn1, Me.GridColumn2, Me.GridColumn3, Me.colESTADO, Me.colMUNICIPIO, Me.colFECHA, Me.colSEXO, Me.colCARGA_MUESTRA})
+        Me.GridView1.GridControl = Me.GridControl1
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'colId
+        '
+        Me.colId.FieldName = "Id"
+        Me.colId.Name = "colId"
+        '
+        'colNOMBRE
+        '
+        Me.colNOMBRE.FieldName = "NOMBRE"
+        Me.colNOMBRE.Name = "colNOMBRE"
+        Me.colNOMBRE.Visible = True
+        Me.colNOMBRE.VisibleIndex = 0
+        '
+        'GridColumn1
+        '
+        Me.GridColumn1.FieldName = "A.P"
+        Me.GridColumn1.Name = "GridColumn1"
+        Me.GridColumn1.Visible = True
+        Me.GridColumn1.VisibleIndex = 1
+        '
+        'GridColumn2
+        '
+        Me.GridColumn2.FieldName = "A.M"
+        Me.GridColumn2.Name = "GridColumn2"
+        Me.GridColumn2.Visible = True
+        Me.GridColumn2.VisibleIndex = 2
+        '
+        'GridColumn3
+        '
+        Me.GridColumn3.FieldName = "F.NAC"
+        Me.GridColumn3.Name = "GridColumn3"
+        Me.GridColumn3.Visible = True
+        Me.GridColumn3.VisibleIndex = 3
+        '
+        'colESTADO
+        '
+        Me.colESTADO.FieldName = "ESTADO"
+        Me.colESTADO.Name = "colESTADO"
+        Me.colESTADO.Visible = True
+        Me.colESTADO.VisibleIndex = 4
+        '
+        'colMUNICIPIO
+        '
+        Me.colMUNICIPIO.FieldName = "MUNICIPIO"
+        Me.colMUNICIPIO.Name = "colMUNICIPIO"
+        Me.colMUNICIPIO.Visible = True
+        Me.colMUNICIPIO.VisibleIndex = 5
+        '
+        'colFECHA
+        '
+        Me.colFECHA.FieldName = "FECHA"
+        Me.colFECHA.Name = "colFECHA"
+        Me.colFECHA.Visible = True
+        Me.colFECHA.VisibleIndex = 6
+        '
+        'colSEXO
+        '
+        Me.colSEXO.FieldName = "SEXO"
+        Me.colSEXO.Name = "colSEXO"
+        Me.colSEXO.Visible = True
+        Me.colSEXO.VisibleIndex = 7
+        '
+        'colCARGA_MUESTRA
+        '
+        Me.colCARGA_MUESTRA.FieldName = "CARGA_MUESTRA"
+        Me.colCARGA_MUESTRA.Name = "colCARGA_MUESTRA"
+        Me.colCARGA_MUESTRA.Visible = True
+        Me.colCARGA_MUESTRA.VisibleIndex = 8
+        '
         'PCAT_ESTADOS_BTableAdapter
         '
         Me.PCAT_ESTADOS_BTableAdapter.ClearBeforeFill = True
@@ -177,20 +288,27 @@ Partial Class Importar
         '
         Me.PCAT_MUNICIPIOS_BTableAdapter.ClearBeforeFill = True
         '
+        'CAT_PACIENTES_BTableAdapter
+        '
+        Me.CAT_PACIENTES_BTableAdapter.ClearBeforeFill = True
+        '
+        'DxErrorProvider1
+        '
+        Me.DxErrorProvider1.ContainerControl = Me
+        '
         'Importar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "Importar"
-        Me.Size = New System.Drawing.Size(993, 689)
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Size = New System.Drawing.Size(1354, 689)
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.PerformLayout()
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        CType(Me.TEProcesando.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TECarga.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LUEMunicipio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PCATMUNICIPIOSBBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -198,11 +316,14 @@ Partial Class Importar
         CType(Me.LUEEstado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PCATESTADOSBBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Cat_Estados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CATPACIENTESBBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CAT_PACIENTES_B, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DxErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents TECarga As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Label3 As Label
@@ -216,4 +337,21 @@ Partial Class Importar
     Friend WithEvents PCATMUNICIPIOSBBindingSource As BindingSource
     Friend WithEvents Cat_Municipios As Cat_Municipios
     Friend WithEvents PCAT_MUNICIPIOS_BTableAdapter As Cat_MunicipiosTableAdapters.pCAT_MUNICIPIOS_BTableAdapter
+    Friend WithEvents CATPACIENTESBBindingSource As BindingSource
+    Friend WithEvents CAT_PACIENTES_B As CAT_PACIENTES_B
+    Friend WithEvents CAT_PACIENTES_BTableAdapter As CAT_PACIENTES_BTableAdapters.CAT_PACIENTES_BTableAdapter
+    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents colId As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colNOMBRE As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colESTADO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colMUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colFECHA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colSEXO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCARGA_MUESTRA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents TEProcesando As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents DxErrorProvider1 As DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider
 End Class

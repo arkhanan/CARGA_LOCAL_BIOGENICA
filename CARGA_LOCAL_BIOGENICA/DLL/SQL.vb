@@ -3,7 +3,8 @@ Imports System.IO.Ports
 
 Public Class SQL
 
-    Public sConexionx As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DB_Proyecto.mdf;Integrated Security=True"
+    Public sConexionx As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename= D:\GITHUB\BIOGENICA\CARGA_LOCAL_BIOGENICA\DB_PROYECTO.MDF;Integrated Security=True"
+    'Public sConexionx As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DB_Proyecto.mdf;Integrated Security=True"
     Public sClue As String '= "19"
     Public cConnect As New SqlConnection()
     Public TipoConexionX As TipoConexion
