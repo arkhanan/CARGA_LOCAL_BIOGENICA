@@ -283,25 +283,25 @@ Partial Public Class CAT_PACIENTES_B
     Partial Public Class CAT_PACIENTES_BDataTable
         Inherits Global.System.Data.TypedTableBase(Of CAT_PACIENTES_BRow)
         
-        Private columnId As Global.System.Data.DataColumn
-        
-        Private columnNOMBRE As Global.System.Data.DataColumn
+        Private columnnombre As Global.System.Data.DataColumn
         
         Private _columnA_P As Global.System.Data.DataColumn
         
         Private _columnA_M As Global.System.Data.DataColumn
         
-        Private _columnF_NAC As Global.System.Data.DataColumn
+        Private columnedad As Global.System.Data.DataColumn
         
         Private columnESTADO As Global.System.Data.DataColumn
         
         Private columnMUNICIPIO As Global.System.Data.DataColumn
         
-        Private columnFECHA As Global.System.Data.DataColumn
-        
-        Private columnSEXO As Global.System.Data.DataColumn
+        Private columnsexo As Global.System.Data.DataColumn
         
         Private columnCARGA_MUESTRA As Global.System.Data.DataColumn
+        
+        Private columnasistencia As Global.System.Data.DataColumn
+        
+        Private columnFECHA As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -340,17 +340,9 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IdColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property nombreColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NOMBREColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNOMBRE
+                Return Me.columnnombre
             End Get
         End Property
         
@@ -372,9 +364,9 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property _F_NACColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property edadColumn() As Global.System.Data.DataColumn
             Get
-                Return Me._columnF_NAC
+                Return Me.columnedad
             End Get
         End Property
         
@@ -396,17 +388,9 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property FECHAColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property sexoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnFECHA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property SEXOColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSEXO
+                Return Me.columnsexo
             End Get
         End Property
         
@@ -415,6 +399,22 @@ Partial Public Class CAT_PACIENTES_B
         Public ReadOnly Property CARGA_MUESTRAColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCARGA_MUESTRA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property asistenciaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnasistencia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property FECHAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFECHA
             End Get
         End Property
         
@@ -455,18 +455,12 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddCAT_PACIENTES_BRow(ByVal NOMBRE As String, ByVal _A_P As String, ByVal _A_M As String, ByVal _F_NAC As Date, ByVal ESTADO As String, ByVal MUNICIPIO As String, ByVal FECHA As Date, ByVal SEXO As String, ByVal CARGA_MUESTRA As String) As CAT_PACIENTES_BRow
+        Public Overloads Function AddCAT_PACIENTES_BRow(ByVal nombre As String, ByVal _A_P As String, ByVal _A_M As String, ByVal edad As Integer, ByVal ESTADO As String, ByVal MUNICIPIO As String, ByVal sexo As String, ByVal CARGA_MUESTRA As String, ByVal asistencia As Boolean, ByVal FECHA As Date) As CAT_PACIENTES_BRow
             Dim rowCAT_PACIENTES_BRow As CAT_PACIENTES_BRow = CType(Me.NewRow,CAT_PACIENTES_BRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, NOMBRE, _A_P, _A_M, _F_NAC, ESTADO, MUNICIPIO, FECHA, SEXO, CARGA_MUESTRA}
+            Dim columnValuesArray() As Object = New Object() {nombre, _A_P, _A_M, edad, ESTADO, MUNICIPIO, sexo, CARGA_MUESTRA, asistencia, FECHA}
             rowCAT_PACIENTES_BRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCAT_PACIENTES_BRow)
             Return rowCAT_PACIENTES_BRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindById(ByVal Id As Integer) As CAT_PACIENTES_BRow
-            Return CType(Me.Rows.Find(New Object() {Id}),CAT_PACIENTES_BRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -486,25 +480,23 @@ Partial Public Class CAT_PACIENTES_B
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnId = MyBase.Columns("Id")
-            Me.columnNOMBRE = MyBase.Columns("NOMBRE")
+            Me.columnnombre = MyBase.Columns("nombre")
             Me._columnA_P = MyBase.Columns("A.P")
             Me._columnA_M = MyBase.Columns("A.M")
-            Me._columnF_NAC = MyBase.Columns("F.NAC")
+            Me.columnedad = MyBase.Columns("edad")
             Me.columnESTADO = MyBase.Columns("ESTADO")
             Me.columnMUNICIPIO = MyBase.Columns("MUNICIPIO")
-            Me.columnFECHA = MyBase.Columns("FECHA")
-            Me.columnSEXO = MyBase.Columns("SEXO")
+            Me.columnsexo = MyBase.Columns("sexo")
             Me.columnCARGA_MUESTRA = MyBase.Columns("CARGA_MUESTRA")
+            Me.columnasistencia = MyBase.Columns("asistencia")
+            Me.columnFECHA = MyBase.Columns("FECHA")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnId = New Global.System.Data.DataColumn("Id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnId)
-            Me.columnNOMBRE = New Global.System.Data.DataColumn("NOMBRE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNOMBRE)
+            Me.columnnombre = New Global.System.Data.DataColumn("nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombre)
             Me._columnA_P = New Global.System.Data.DataColumn("A.P", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             Me._columnA_P.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnA_P")
             Me._columnA_P.ExtendedProperties.Add("Generator_UserColumnName", "A.P")
@@ -513,31 +505,28 @@ Partial Public Class CAT_PACIENTES_B
             Me._columnA_M.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnA_M")
             Me._columnA_M.ExtendedProperties.Add("Generator_UserColumnName", "A.M")
             MyBase.Columns.Add(Me._columnA_M)
-            Me._columnF_NAC = New Global.System.Data.DataColumn("F.NAC", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            Me._columnF_NAC.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnF_NAC")
-            Me._columnF_NAC.ExtendedProperties.Add("Generator_UserColumnName", "F.NAC")
-            MyBase.Columns.Add(Me._columnF_NAC)
+            Me.columnedad = New Global.System.Data.DataColumn("edad", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnedad)
             Me.columnESTADO = New Global.System.Data.DataColumn("ESTADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnESTADO)
             Me.columnMUNICIPIO = New Global.System.Data.DataColumn("MUNICIPIO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMUNICIPIO)
-            Me.columnFECHA = New Global.System.Data.DataColumn("FECHA", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFECHA)
-            Me.columnSEXO = New Global.System.Data.DataColumn("SEXO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSEXO)
+            Me.columnsexo = New Global.System.Data.DataColumn("sexo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsexo)
             Me.columnCARGA_MUESTRA = New Global.System.Data.DataColumn("CARGA_MUESTRA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCARGA_MUESTRA)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId}, true))
-            Me.columnId.AutoIncrement = true
-            Me.columnId.AllowDBNull = false
-            Me.columnId.ReadOnly = true
-            Me.columnId.Unique = true
-            Me.columnNOMBRE.MaxLength = 50
+            Me.columnasistencia = New Global.System.Data.DataColumn("asistencia", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnasistencia)
+            Me.columnFECHA = New Global.System.Data.DataColumn("FECHA", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFECHA)
+            Me.columnnombre.MaxLength = 50
             Me._columnA_P.MaxLength = 50
             Me._columnA_M.MaxLength = 50
-            Me.columnESTADO.MaxLength = 50
-            Me.columnMUNICIPIO.MaxLength = 50
-            Me.columnSEXO.MaxLength = 50
+            Me.columnESTADO.ReadOnly = true
+            Me.columnESTADO.MaxLength = 100
+            Me.columnMUNICIPIO.ReadOnly = true
+            Me.columnMUNICIPIO.MaxLength = 100
+            Me.columnsexo.MaxLength = 50
             Me.columnCARGA_MUESTRA.MaxLength = 50
             Me.ExtendedProperties.Add("Generator_TablePropName", "_CAT_PACIENTES_B")
             Me.ExtendedProperties.Add("Generator_UserTableName", "CAT_PACIENTES_B")
@@ -687,27 +676,16 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Id() As Integer
-            Get
-                Return CType(Me(Me.tableCAT_PACIENTES_B.IdColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableCAT_PACIENTES_B.IdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property NOMBRE() As String
+        Public Property nombre() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableCAT_PACIENTES_B.NOMBREColumn),String)
+                    Return CType(Me(Me.tableCAT_PACIENTES_B.nombreColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE' in table 'CAT_PACIENTES_B' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'nombre' in table 'CAT_PACIENTES_B' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableCAT_PACIENTES_B.NOMBREColumn) = value
+                Me(Me.tableCAT_PACIENTES_B.nombreColumn) = value
             End Set
         End Property
         
@@ -743,16 +721,16 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property _F_NAC() As Date
+        Public Property edad() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableCAT_PACIENTES_B._F_NACColumn),Date)
+                    Return CType(Me(Me.tableCAT_PACIENTES_B.edadColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'F.NAC' in table 'CAT_PACIENTES_B' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'edad' in table 'CAT_PACIENTES_B' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableCAT_PACIENTES_B._F_NACColumn) = value
+                Me(Me.tableCAT_PACIENTES_B.edadColumn) = value
             End Set
         End Property
         
@@ -788,31 +766,16 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property FECHA() As Date
+        Public Property sexo() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableCAT_PACIENTES_B.FECHAColumn),Date)
+                    Return CType(Me(Me.tableCAT_PACIENTES_B.sexoColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA' in table 'CAT_PACIENTES_B' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sexo' in table 'CAT_PACIENTES_B' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableCAT_PACIENTES_B.FECHAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property SEXO() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableCAT_PACIENTES_B.SEXOColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'SEXO' in table 'CAT_PACIENTES_B' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableCAT_PACIENTES_B.SEXOColumn) = value
+                Me(Me.tableCAT_PACIENTES_B.sexoColumn) = value
             End Set
         End Property
         
@@ -833,14 +796,44 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNOMBRENull() As Boolean
-            Return Me.IsNull(Me.tableCAT_PACIENTES_B.NOMBREColumn)
+        Public Property asistencia() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableCAT_PACIENTES_B.asistenciaColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'asistencia' in table 'CAT_PACIENTES_B' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCAT_PACIENTES_B.asistenciaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property FECHA() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableCAT_PACIENTES_B.FECHAColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA' in table 'CAT_PACIENTES_B' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCAT_PACIENTES_B.FECHAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsnombreNull() As Boolean
+            Return Me.IsNull(Me.tableCAT_PACIENTES_B.nombreColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNOMBRENull()
-            Me(Me.tableCAT_PACIENTES_B.NOMBREColumn) = Global.System.Convert.DBNull
+        Public Sub SetnombreNull()
+            Me(Me.tableCAT_PACIENTES_B.nombreColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -869,14 +862,14 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Is_F_NACNull() As Boolean
-            Return Me.IsNull(Me.tableCAT_PACIENTES_B._F_NACColumn)
+        Public Function IsedadNull() As Boolean
+            Return Me.IsNull(Me.tableCAT_PACIENTES_B.edadColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Set_F_NACNull()
-            Me(Me.tableCAT_PACIENTES_B._F_NACColumn) = Global.System.Convert.DBNull
+        Public Sub SetedadNull()
+            Me(Me.tableCAT_PACIENTES_B.edadColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -905,26 +898,14 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsFECHANull() As Boolean
-            Return Me.IsNull(Me.tableCAT_PACIENTES_B.FECHAColumn)
+        Public Function IssexoNull() As Boolean
+            Return Me.IsNull(Me.tableCAT_PACIENTES_B.sexoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetFECHANull()
-            Me(Me.tableCAT_PACIENTES_B.FECHAColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsSEXONull() As Boolean
-            Return Me.IsNull(Me.tableCAT_PACIENTES_B.SEXOColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetSEXONull()
-            Me(Me.tableCAT_PACIENTES_B.SEXOColumn) = Global.System.Convert.DBNull
+        Public Sub SetsexoNull()
+            Me(Me.tableCAT_PACIENTES_B.sexoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -937,6 +918,30 @@ Partial Public Class CAT_PACIENTES_B
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetCARGA_MUESTRANull()
             Me(Me.tableCAT_PACIENTES_B.CARGA_MUESTRAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsasistenciaNull() As Boolean
+            Return Me.IsNull(Me.tableCAT_PACIENTES_B.asistenciaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetasistenciaNull()
+            Me(Me.tableCAT_PACIENTES_B.asistenciaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsFECHANull() As Boolean
+            Return Me.IsNull(Me.tableCAT_PACIENTES_B.FECHAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetFECHANull()
+            Me(Me.tableCAT_PACIENTES_B.FECHAColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1106,16 +1111,16 @@ Namespace CAT_PACIENTES_BTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "CAT_PACIENTES_B"
-            tableMapping.ColumnMappings.Add("Id", "Id")
-            tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE")
+            tableMapping.ColumnMappings.Add("nombre", "nombre")
             tableMapping.ColumnMappings.Add("A.P", "A.P")
             tableMapping.ColumnMappings.Add("A.M", "A.M")
-            tableMapping.ColumnMappings.Add("F.NAC", "F.NAC")
+            tableMapping.ColumnMappings.Add("edad", "edad")
             tableMapping.ColumnMappings.Add("ESTADO", "ESTADO")
             tableMapping.ColumnMappings.Add("MUNICIPIO", "MUNICIPIO")
-            tableMapping.ColumnMappings.Add("FECHA", "FECHA")
-            tableMapping.ColumnMappings.Add("SEXO", "SEXO")
+            tableMapping.ColumnMappings.Add("sexo", "sexo")
             tableMapping.ColumnMappings.Add("CARGA_MUESTRA", "CARGA_MUESTRA")
+            tableMapping.ColumnMappings.Add("asistencia", "asistencia")
+            tableMapping.ColumnMappings.Add("FECHA", "FECHA")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1135,14 +1140,20 @@ Namespace CAT_PACIENTES_BTableAdapters
             Me._commandCollection(0).CommandText = "dbo.CAT_PACIENTES_B"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CVE_MUESTRA", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As CAT_PACIENTES_B.CAT_PACIENTES_BDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As CAT_PACIENTES_B.CAT_PACIENTES_BDataTable, ByVal CVE_MUESTRA As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (CVE_MUESTRA Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(CVE_MUESTRA,String)
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -1154,8 +1165,13 @@ Namespace CAT_PACIENTES_BTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As CAT_PACIENTES_B.CAT_PACIENTES_BDataTable
+        Public Overloads Overridable Function GetData(ByVal CVE_MUESTRA As String) As CAT_PACIENTES_B.CAT_PACIENTES_BDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (CVE_MUESTRA Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(CVE_MUESTRA,String)
+            End If
             Dim dataTable As CAT_PACIENTES_B.CAT_PACIENTES_BDataTable = New CAT_PACIENTES_B.CAT_PACIENTES_BDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

@@ -49,8 +49,11 @@ Public Class Importar
             sql.ParametersX_Global(0) = New SqlClient.SqlParameter("@CLAVE_MUESTRA", TECarga.Text)
             Dim sX = sql.fGuardar_O_EliminarXProcedure_DevuelveId("CAT_PACIENTE_E", "@Parametro", sql.ParametersX_Global)
 
+            ReDim sql.ParametersX_Global(1)
+            sql.ParametersX_Global(0) = New SqlClient.SqlParameter("@CVE_MUESTRA", TECarga.Text)
+            sql.ParametersX_Global(1) = New SqlClient.SqlParameter("@FECHA", DEFecha.EditValue)
+            sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B_MASIVA", sql.ParametersX_Global)
 
-            sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B_MASIVA")
 
 
             For i As Integer = 0 To dt.Rows.Count - 1
@@ -63,6 +66,7 @@ Public Class Importar
                 sql.ParametersX_Global(5) = New SqlClient.SqlParameter("@CVE_MUNICIPIO", dt.Rows(i).Item("CVE_MUNICIPIO"))
                 sql.ParametersX_Global(6) = New SqlClient.SqlParameter("@SEXO", dt.Rows(i).Item("Sexo"))
                 sql.ParametersX_Global(7) = New SqlClient.SqlParameter("@CLAVE_CARGA", dt.Rows(i).Item("CARGA_CLAVE"))
+                sql.ParametersX_Global(8) = New SqlClient.SqlParameter("@FECHA", DEFecha.EditValue)
                 Dim s = sql.fGuardar_O_EliminarXProcedure_DevuelveId("PACIENTES_CARGA_MASIVA_G", "@Parametro", sql.ParametersX_Global)
                 If s <> Nothing Then
                     TEProcesando.Text = "Datos Cargados"
@@ -71,8 +75,10 @@ Public Class Importar
 
             Next
         End If
-
-        sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B_MASIVA")
+        ReDim sql.ParametersX_Global(1)
+        sql.ParametersX_Global(0) = New SqlClient.SqlParameter("@CVE_MUESTRA", TECarga.Text)
+        sql.ParametersX_Global(1) = New SqlClient.SqlParameter("@FECHA", DEFecha.EditValue)
+        sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B_MASIVA", sql.ParametersX_Global)
         TECarga.Text = Now.ToString("ddMMyyyyHHMMss")
 
 
@@ -86,7 +92,8 @@ Public Class Importar
         LUEMunicipio.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
         TECarga.Text = Now.ToString("ddMMyyyyHHMMss")
         sql.dataset(Me.Cat_Estados.pCAT_ESTADOS_B, "pCAT_ESTADOS_B")
-        sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B_MASIVA")
+        DEFecha.EditValue = Now
+        'sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B_MASIVA")
     End Sub
 
     Private Sub LUEEstado_EditValueChanged(sender As Object, e As EventArgs) Handles LUEEstado.EditValueChanged
