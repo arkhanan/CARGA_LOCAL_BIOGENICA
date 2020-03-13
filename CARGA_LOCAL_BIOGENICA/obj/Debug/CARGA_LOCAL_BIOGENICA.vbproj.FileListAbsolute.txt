@@ -282,4 +282,7 @@ D:\github\biogenica\CARGA_LOCAL_BIOGENICA\bin\Debug\de\DevExpress.XtraVerticalGr
 D:\github\biogenica\CARGA_LOCAL_BIOGENICA\bin\Debug\es\DevExpress.XtraVerticalGrid.v16.1.resources.dll
 D:\github\biogenica\CARGA_LOCAL_BIOGENICA\bin\Debug\ja\DevExpress.XtraVerticalGrid.v16.1.resources.dll
 D:\github\biogenica\CARGA_LOCAL_BIOGENICA\bin\Debug\ru\DevExpress.XtraVerticalGrid.v16.1.resources.dll
-D:\github\biogenica\CARGA_LOCAL_BIOGENICA\obj\Debug\CARGA_LOCAL_BIOGENICA.R_ETIQUETAS.resources
+D:\github\biogenica\CARGA_LOCAL_BIOGENICA\bin\Debug\App_Data\ReportService.mdf
+D:\github\biogenica\CARGA_LOCAL_BIOGENICA\bin\Debug\DevExpress.XtraReports.v16.1.Service.dll
+D:\github\biogenica\CARGA_LOCAL_BIOGENICA\bin\Debug\DevExpress.XtraReports.v16.1.Service.xml
+D:\github\biogenica\CARGA_LOCAL_BIOGENICA\obj\Debug\CARGA_LOCAL_BIOGENICA.ETQUETA.resources

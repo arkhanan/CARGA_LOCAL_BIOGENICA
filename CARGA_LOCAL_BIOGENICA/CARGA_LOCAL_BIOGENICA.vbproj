@@ -84,16 +84,19 @@
     <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v16.1.Extensions, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v16.1.Service, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -137,9 +140,20 @@
     <Compile Include="Consultar.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="DATASET\REPORTE_ETIQUETA.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>REPORTE_ETIQUETA.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DLL\Miselaneo.vb" />
     <Compile Include="DLL\SQL.vb" />
     <Compile Include="DLL\Variables Globales.vb" />
+    <Compile Include="ETQUETA.Designer.vb">
+      <DependentUpon>ETQUETA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETQUETA.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Exportar.Designer.vb">
       <DependentUpon>Exportar.vb</DependentUpon>
     </Compile>
@@ -163,19 +177,11 @@
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="REPORTE_ETIQUETA.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>REPORTE_ETIQUETA.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="R_ETIQUETAS.Designer.vb">
-      <DependentUpon>R_ETIQUETAS.vb</DependentUpon>
-    </Compile>
-    <Compile Include="R_ETIQUETAS.vb">
-      <SubType>Component</SubType>
-    </Compile>
     <EmbeddedResource Include="Consultar.resx">
       <DependentUpon>Consultar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETQUETA.resx">
+      <DependentUpon>ETQUETA.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Exportar.resx">
       <DependentUpon>Exportar.vb</DependentUpon>
@@ -198,9 +204,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="R_ETIQUETAS.resx">
-      <DependentUpon>R_ETIQUETAS.vb</DependentUpon>
-    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="DATASET\Cat_Estados.xsc">
       <DependentUpon>Cat_Estados.xsd</DependentUpon>
@@ -235,6 +238,17 @@
     <None Include="DATASET\CAT_PACIENTES_B.xss">
       <DependentUpon>CAT_PACIENTES_B.xsd</DependentUpon>
     </None>
+    <None Include="DATASET\REPORTE_ETIQUETA.xsc">
+      <DependentUpon>REPORTE_ETIQUETA.xsd</DependentUpon>
+    </None>
+    <None Include="DATASET\REPORTE_ETIQUETA.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>REPORTE_ETIQUETA.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DATASET\REPORTE_ETIQUETA.xss">
+      <DependentUpon>REPORTE_ETIQUETA.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
@@ -252,17 +266,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="REPORTE_ETIQUETA.xsc">
-      <DependentUpon>REPORTE_ETIQUETA.xsd</DependentUpon>
-    </None>
-    <None Include="REPORTE_ETIQUETA.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>REPORTE_ETIQUETA.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="REPORTE_ETIQUETA.xss">
-      <DependentUpon>REPORTE_ETIQUETA.xsd</DependentUpon>
-    </None>
     <None Include="Resources\icons8-exportar-251.png" />
     <None Include="Resources\icons8-documentos-25.png" />
     <None Include="Resources\icons8-exportación-de-base-de-datos-25.png" />
@@ -286,6 +289,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ReportService.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="DB_Proyecto.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

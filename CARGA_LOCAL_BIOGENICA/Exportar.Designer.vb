@@ -35,23 +35,24 @@ Partial Class Exportar
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.BEUbicacion = New DevExpress.XtraEditors.ButtonEdit()
-        Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
         Me.CATPACIENTESBBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CAT_PACIENTES_B = New CARGA_LOCAL_BIOGENICA.CAT_PACIENTES_B()
+        Me.PCAT_ESTADOS_BTableAdapter = New CARGA_LOCAL_BIOGENICA.Cat_EstadosTableAdapters.pCAT_ESTADOS_BTableAdapter()
+        Me.PCAT_MUNICIPIOS_BTableAdapter = New CARGA_LOCAL_BIOGENICA.Cat_MunicipiosTableAdapters.pCAT_MUNICIPIOS_BTableAdapter()
+        Me.CAT_PACIENTES_BTableAdapter = New CARGA_LOCAL_BIOGENICA.CAT_PACIENTES_BTableAdapters.CAT_PACIENTES_BTableAdapter()
+        Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.colId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colnombre = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colEDAD = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.coledad = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colESTADO = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colMUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colsexo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colCARGA_MUESTRA = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colasistencia = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colFECHA = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.PCAT_ESTADOS_BTableAdapter = New CARGA_LOCAL_BIOGENICA.Cat_EstadosTableAdapters.pCAT_ESTADOS_BTableAdapter()
-        Me.PCAT_MUNICIPIOS_BTableAdapter = New CARGA_LOCAL_BIOGENICA.Cat_MunicipiosTableAdapters.pCAT_MUNICIPIOS_BTableAdapter()
-        Me.CAT_PACIENTES_BTableAdapter = New CARGA_LOCAL_BIOGENICA.CAT_PACIENTES_BTableAdapters.CAT_PACIENTES_BTableAdapter()
         CType(Me.DEFecha.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DEFecha.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LUEMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,9 +68,9 @@ Partial Class Exportar
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         CType(Me.BEUbicacion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CATPACIENTESBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CAT_PACIENTES_B, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -206,6 +207,28 @@ Partial Class Exportar
         Me.BEUbicacion.Size = New System.Drawing.Size(255, 20)
         Me.BEUbicacion.TabIndex = 19
         '
+        'CATPACIENTESBBindingSource
+        '
+        Me.CATPACIENTESBBindingSource.DataMember = "CAT_PACIENTES_B"
+        Me.CATPACIENTESBBindingSource.DataSource = Me.CAT_PACIENTES_B
+        '
+        'CAT_PACIENTES_B
+        '
+        Me.CAT_PACIENTES_B.DataSetName = "CAT_PACIENTES_B"
+        Me.CAT_PACIENTES_B.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'PCAT_ESTADOS_BTableAdapter
+        '
+        Me.PCAT_ESTADOS_BTableAdapter.ClearBeforeFill = True
+        '
+        'PCAT_MUNICIPIOS_BTableAdapter
+        '
+        Me.PCAT_MUNICIPIOS_BTableAdapter.ClearBeforeFill = True
+        '
+        'CAT_PACIENTES_BTableAdapter
+        '
+        Me.CAT_PACIENTES_BTableAdapter.ClearBeforeFill = True
+        '
         'GridControl1
         '
         Me.GridControl1.DataSource = Me.CATPACIENTESBBindingSource
@@ -217,21 +240,16 @@ Partial Class Exportar
         Me.GridControl1.TabIndex = 0
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
-        'CATPACIENTESBBindingSource
-        '
-        Me.CATPACIENTESBBindingSource.DataMember = "CAT_PACIENTES_B"
-        Me.CATPACIENTESBBindingSource.DataSource = Me.CAT_PACIENTES_B
-        '
-        'CAT_PACIENTES_B
-        '
-        Me.CAT_PACIENTES_B.DataSetName = "CAT_PACIENTES_B"
-        Me.CAT_PACIENTES_B.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colnombre, Me.GridColumn1, Me.GridColumn2, Me.colEDAD, Me.colESTADO, Me.colMUNICIPIO, Me.colsexo, Me.colCARGA_MUESTRA, Me.colasistencia, Me.colFECHA})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colId, Me.colnombre, Me.GridColumn1, Me.GridColumn2, Me.coledad, Me.colESTADO, Me.colMUNICIPIO, Me.colsexo, Me.colCARGA_MUESTRA, Me.colasistencia, Me.colFECHA})
         Me.GridView1.GridControl = Me.GridControl1
         Me.GridView1.Name = "GridView1"
+        '
+        'colId
+        '
+        Me.colId.FieldName = "Id"
+        Me.colId.Name = "colId"
         '
         'colnombre
         '
@@ -255,12 +273,13 @@ Partial Class Exportar
         Me.GridColumn2.Visible = True
         Me.GridColumn2.VisibleIndex = 2
         '
-        'colEDAD
+        'coledad
         '
-        Me.colEDAD.FieldName = "EDAD"
-        Me.colEDAD.Name = "colEDAD"
-        Me.colEDAD.Visible = True
-        Me.colEDAD.VisibleIndex = 3
+        Me.coledad.Caption = "EDAD"
+        Me.coledad.FieldName = "edad"
+        Me.coledad.Name = "coledad"
+        Me.coledad.Visible = True
+        Me.coledad.VisibleIndex = 3
         '
         'colESTADO
         '
@@ -288,6 +307,8 @@ Partial Class Exportar
         '
         Me.colCARGA_MUESTRA.FieldName = "CARGA_MUESTRA"
         Me.colCARGA_MUESTRA.Name = "colCARGA_MUESTRA"
+        Me.colCARGA_MUESTRA.Visible = True
+        Me.colCARGA_MUESTRA.VisibleIndex = 7
         '
         'colasistencia
         '
@@ -298,20 +319,6 @@ Partial Class Exportar
         '
         Me.colFECHA.FieldName = "FECHA"
         Me.colFECHA.Name = "colFECHA"
-        Me.colFECHA.Visible = True
-        Me.colFECHA.VisibleIndex = 9
-        '
-        'PCAT_ESTADOS_BTableAdapter
-        '
-        Me.PCAT_ESTADOS_BTableAdapter.ClearBeforeFill = True
-        '
-        'PCAT_MUNICIPIOS_BTableAdapter
-        '
-        Me.PCAT_MUNICIPIOS_BTableAdapter.ClearBeforeFill = True
-        '
-        'CAT_PACIENTES_BTableAdapter
-        '
-        Me.CAT_PACIENTES_BTableAdapter.ClearBeforeFill = True
         '
         'Exportar
         '
@@ -336,9 +343,9 @@ Partial Class Exportar
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.BEUbicacion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CATPACIENTESBBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CAT_PACIENTES_B, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -361,19 +368,20 @@ Partial Class Exportar
     Friend WithEvents Cat_Estados As Cat_Estados
     Friend WithEvents PCAT_ESTADOS_BTableAdapter As Cat_EstadosTableAdapters.pCAT_ESTADOS_BTableAdapter
     Friend WithEvents PCAT_MUNICIPIOS_BTableAdapter As Cat_MunicipiosTableAdapters.pCAT_MUNICIPIOS_BTableAdapter
-    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
     Friend WithEvents CATPACIENTESBBindingSource As BindingSource
     Friend WithEvents CAT_PACIENTES_B As CAT_PACIENTES_B
+    Friend WithEvents CAT_PACIENTES_BTableAdapter As CAT_PACIENTES_BTableAdapters.CAT_PACIENTES_BTableAdapter
+    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents colId As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colnombre As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colEDAD As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents coledad As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colESTADO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colMUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colsexo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCARGA_MUESTRA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colasistencia As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colFECHA As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents CAT_PACIENTES_BTableAdapter As CAT_PACIENTES_BTableAdapters.CAT_PACIENTES_BTableAdapter
 End Class

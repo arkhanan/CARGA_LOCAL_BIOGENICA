@@ -20,6 +20,7 @@ Partial Class Importar
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DEFecha = New DevExpress.XtraEditors.DateEdit()
@@ -35,27 +36,27 @@ Partial Class Importar
         Me.PCATESTADOSBBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Cat_Estados = New CARGA_LOCAL_BIOGENICA.Cat_Estados()
         Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
-        Me.CATPACIENTESBBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CATPACIENTESBBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.CATPACIENTESBBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CAT_PACIENTES_B = New CARGA_LOCAL_BIOGENICA.CAT_PACIENTES_B()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.RepositoryItemButtonEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.colId = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colnombre = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colEDAD = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.coledad = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colESTADO = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colMUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colsexo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colCARGA_MUESTRA = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colasistencia = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colFECHA = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemButtonEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.CATPACIENTESBBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.PCAT_ESTADOS_BTableAdapter = New CARGA_LOCAL_BIOGENICA.Cat_EstadosTableAdapters.pCAT_ESTADOS_BTableAdapter()
         Me.PCAT_MUNICIPIOS_BTableAdapter = New CARGA_LOCAL_BIOGENICA.Cat_MunicipiosTableAdapters.pCAT_MUNICIPIOS_BTableAdapter()
         Me.DxErrorProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(Me.components)
         Me.CAT_PACIENTES_BTableAdapter = New CARGA_LOCAL_BIOGENICA.CAT_PACIENTES_BTableAdapters.CAT_PACIENTES_BTableAdapter()
-        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -71,11 +72,12 @@ Partial Class Importar
         CType(Me.PCATESTADOSBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Cat_Estados, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CATPACIENTESBBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CATPACIENTESBBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CATPACIENTESBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CAT_PACIENTES_B, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemButtonEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CATPACIENTESBBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -217,7 +219,7 @@ Partial Class Importar
         '
         'GridControl1
         '
-        Me.GridControl1.DataSource = Me.CATPACIENTESBBindingSource1
+        Me.GridControl1.DataSource = Me.CATPACIENTESBBindingSource2
         Me.GridControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GridControl1.Location = New System.Drawing.Point(0, 0)
         Me.GridControl1.MainView = Me.GridView1
@@ -227,10 +229,10 @@ Partial Class Importar
         Me.GridControl1.TabIndex = 0
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
-        'CATPACIENTESBBindingSource1
+        'CATPACIENTESBBindingSource2
         '
-        Me.CATPACIENTESBBindingSource1.DataMember = "CAT_PACIENTES_B"
-        Me.CATPACIENTESBBindingSource1.DataSource = Me.CATPACIENTESBBindingSource
+        Me.CATPACIENTESBBindingSource2.DataMember = "CAT_PACIENTES_B"
+        Me.CATPACIENTESBBindingSource2.DataSource = Me.CATPACIENTESBBindingSource
         '
         'CATPACIENTESBBindingSource
         '
@@ -244,12 +246,25 @@ Partial Class Importar
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colnombre, Me.GridColumn1, Me.GridColumn2, Me.colEDAD, Me.colESTADO, Me.colMUNICIPIO, Me.colsexo, Me.colCARGA_MUESTRA, Me.colasistencia, Me.colFECHA, Me.GridColumn4, Me.GridColumn3})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colId, Me.colnombre, Me.GridColumn1, Me.GridColumn2, Me.coledad, Me.colESTADO, Me.colMUNICIPIO, Me.colsexo, Me.colCARGA_MUESTRA, Me.colasistencia, Me.colFECHA})
         Me.GridView1.GridControl = Me.GridControl1
         Me.GridView1.Name = "GridView1"
         '
+        'RepositoryItemButtonEdit1
+        '
+        Me.RepositoryItemButtonEdit1.AutoHeight = False
+        Me.RepositoryItemButtonEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Global.CARGA_LOCAL_BIOGENICA.My.Resources.Resources.icons8_acercar_80, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
+        Me.RepositoryItemButtonEdit1.Name = "RepositoryItemButtonEdit1"
+        Me.RepositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
+        '
+        'colId
+        '
+        Me.colId.FieldName = "Id"
+        Me.colId.Name = "colId"
+        '
         'colnombre
         '
+        Me.colnombre.Caption = "NOMBRE"
         Me.colnombre.FieldName = "nombre"
         Me.colnombre.Name = "colnombre"
         Me.colnombre.Visible = True
@@ -269,12 +284,13 @@ Partial Class Importar
         Me.GridColumn2.Visible = True
         Me.GridColumn2.VisibleIndex = 2
         '
-        'colEDAD
+        'coledad
         '
-        Me.colEDAD.FieldName = "EDAD"
-        Me.colEDAD.Name = "colEDAD"
-        Me.colEDAD.Visible = True
-        Me.colEDAD.VisibleIndex = 3
+        Me.coledad.Caption = "CAPTION"
+        Me.coledad.FieldName = "edad"
+        Me.coledad.Name = "coledad"
+        Me.coledad.Visible = True
+        Me.coledad.VisibleIndex = 3
         '
         'colESTADO
         '
@@ -292,6 +308,7 @@ Partial Class Importar
         '
         'colsexo
         '
+        Me.colsexo.Caption = "SEXO"
         Me.colsexo.FieldName = "sexo"
         Me.colsexo.Name = "colsexo"
         Me.colsexo.Visible = True
@@ -308,30 +325,18 @@ Partial Class Importar
         '
         Me.colasistencia.FieldName = "asistencia"
         Me.colasistencia.Name = "colasistencia"
-        Me.colasistencia.Visible = True
-        Me.colasistencia.VisibleIndex = 8
         '
         'colFECHA
         '
         Me.colFECHA.FieldName = "FECHA"
         Me.colFECHA.Name = "colFECHA"
         Me.colFECHA.Visible = True
-        Me.colFECHA.VisibleIndex = 9
+        Me.colFECHA.VisibleIndex = 8
         '
-        'GridColumn3
+        'CATPACIENTESBBindingSource1
         '
-        Me.GridColumn3.Caption = "GridColumn3"
-        Me.GridColumn3.ColumnEdit = Me.RepositoryItemButtonEdit1
-        Me.GridColumn3.Name = "GridColumn3"
-        Me.GridColumn3.Visible = True
-        Me.GridColumn3.VisibleIndex = 10
-        '
-        'RepositoryItemButtonEdit1
-        '
-        Me.RepositoryItemButtonEdit1.AutoHeight = False
-        Me.RepositoryItemButtonEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)})
-        Me.RepositoryItemButtonEdit1.Name = "RepositoryItemButtonEdit1"
-        Me.RepositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
+        Me.CATPACIENTESBBindingSource1.DataMember = "CAT_PACIENTES_B"
+        Me.CATPACIENTESBBindingSource1.DataSource = Me.CATPACIENTESBBindingSource
         '
         'PCAT_ESTADOS_BTableAdapter
         '
@@ -348,12 +353,6 @@ Partial Class Importar
         'CAT_PACIENTES_BTableAdapter
         '
         Me.CAT_PACIENTES_BTableAdapter.ClearBeforeFill = True
-        '
-        'GridColumn4
-        '
-        Me.GridColumn4.Caption = "GridColumn4"
-        Me.GridColumn4.FieldNameSortGroup = "Id"
-        Me.GridColumn4.Name = "GridColumn4"
         '
         'Importar
         '
@@ -378,11 +377,12 @@ Partial Class Importar
         CType(Me.PCATESTADOSBBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Cat_Estados, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CATPACIENTESBBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CATPACIENTESBBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CATPACIENTESBBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CAT_PACIENTES_B, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemButtonEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CATPACIENTESBBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -404,23 +404,23 @@ Partial Class Importar
     Friend WithEvents DxErrorProvider1 As DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider
     Friend WithEvents DEFecha As DevExpress.XtraEditors.DateEdit
     Friend WithEvents Label4 As Label
-    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
     Friend WithEvents CATPACIENTESBBindingSource1 As BindingSource
     Friend WithEvents CATPACIENTESBBindingSource As BindingSource
     Friend WithEvents CAT_PACIENTES_B As CAT_PACIENTES_B
+    Friend WithEvents CAT_PACIENTES_BTableAdapter As CAT_PACIENTES_BTableAdapters.CAT_PACIENTES_BTableAdapter
+    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
+    Friend WithEvents CATPACIENTESBBindingSource2 As BindingSource
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents colId As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colnombre As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colEDAD As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents coledad As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colESTADO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colMUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colsexo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCARGA_MUESTRA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colasistencia As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colFECHA As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents CAT_PACIENTES_BTableAdapter As CAT_PACIENTES_BTableAdapters.CAT_PACIENTES_BTableAdapter
-    Friend WithEvents GridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemButtonEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
-    Friend WithEvents GridColumn4 As DevExpress.XtraGrid.Columns.GridColumn
 End Class

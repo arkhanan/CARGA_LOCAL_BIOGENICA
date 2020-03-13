@@ -91,16 +91,26 @@ Public Class Importar
         sql.dataset(Me.Cat_Municipios.pCAT_MUNICIPIOS_B, "pCAT_MUNICIPIOS_B", sql.ParametersX_Global)
     End Sub
 
-    Private Sub RepositoryItemButtonEdit1_ButtonClick(sender As Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles RepositoryItemButtonEdit1.ButtonClick
-        Dim elemento = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "nombre")
-        ID_REPORTE = elemento
-        'Dim XTRA As XtraReport = New XtraReport(REPORTE_ETIQUETA)
+    Private Sub RepositoryItemButtonEdit1_ButtonClick(sender As Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs)
+
+
+
+
 
 
         'XTRA.CreateDocument()
-        'Dim printTool As New ReportPrintTool(XTRA)
-        'printTool.PrintDialog()
 
 
+
+    End Sub
+
+    Private Sub RepositoryItemButtonEdit1_ButtonClick_1(sender As Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles RepositoryItemButtonEdit1.ButtonClick
+        ID_REPORTE = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Id")
+
+        Dim report As New ETQUETA
+        'report.SqlDataSource1.Connection.ConnectionString = My.Settings.Item("DB_ProyectoConnectionString")
+        'report.Parameters("ID").Value = "14"
+        report.CreateDocument()
+        report.ShowPreviewDialog
     End Sub
 End Class
