@@ -50,7 +50,7 @@ Public Class Importar
             Dim sX = sql.fGuardar_O_EliminarXProcedure_DevuelveId("CAT_PACIENTE_E", "@Parametro", sql.ParametersX_Global)
 
 
-            sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B")
+            sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B_MASIVA")
 
 
             For i As Integer = 0 To dt.Rows.Count - 1
@@ -72,7 +72,7 @@ Public Class Importar
             Next
         End If
 
-        sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B")
+        sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B_MASIVA")
         TECarga.Text = Now.ToString("ddMMyyyyHHMMss")
 
 
@@ -86,7 +86,7 @@ Public Class Importar
         LUEMunicipio.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup
         TECarga.Text = Now.ToString("ddMMyyyyHHMMss")
         sql.dataset(Me.Cat_Estados.pCAT_ESTADOS_B, "pCAT_ESTADOS_B")
-        sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B")
+        sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B_MASIVA")
     End Sub
 
     Private Sub LUEEstado_EditValueChanged(sender As Object, e As EventArgs) Handles LUEEstado.EditValueChanged

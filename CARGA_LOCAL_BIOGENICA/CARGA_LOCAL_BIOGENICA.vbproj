@@ -91,17 +91,17 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cat_Estados.Designer.vb">
+    <Compile Include="DATASET\Cat_Estados.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Cat_Estados.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Cat_Municipios.Designer.vb">
+    <Compile Include="DATASET\Cat_Municipios.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Cat_Municipios.xsd</DependentUpon>
     </Compile>
-    <Compile Include="CAT_PACIENTES_B.Designer.vb">
+    <Compile Include="DATASET\CAT_PACIENTES_B.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CAT_PACIENTES_B.xsd</DependentUpon>
@@ -163,37 +163,37 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="Cat_Estados.xsc">
+    <None Include="DATASET\Cat_Estados.xsc">
       <DependentUpon>Cat_Estados.xsd</DependentUpon>
     </None>
-    <None Include="Cat_Estados.xsd">
+    <None Include="DATASET\Cat_Estados.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Cat_Estados.Designer.vb</LastGenOutput>
     </None>
-    <None Include="Cat_Estados.xss">
+    <None Include="DATASET\Cat_Estados.xss">
       <DependentUpon>Cat_Estados.xsd</DependentUpon>
     </None>
-    <None Include="Cat_Municipios.xsc">
+    <None Include="DATASET\Cat_Municipios.xsc">
       <DependentUpon>Cat_Municipios.xsd</DependentUpon>
     </None>
-    <None Include="Cat_Municipios.xsd">
+    <None Include="DATASET\Cat_Municipios.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Cat_Municipios.Designer.vb</LastGenOutput>
     </None>
-    <None Include="Cat_Municipios.xss">
+    <None Include="DATASET\Cat_Municipios.xss">
       <DependentUpon>Cat_Municipios.xsd</DependentUpon>
     </None>
-    <None Include="CAT_PACIENTES_B.xsc">
+    <None Include="DATASET\CAT_PACIENTES_B.xsc">
       <DependentUpon>CAT_PACIENTES_B.xsd</DependentUpon>
     </None>
-    <None Include="CAT_PACIENTES_B.xsd">
+    <None Include="DATASET\CAT_PACIENTES_B.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>CAT_PACIENTES_B.Designer.vb</LastGenOutput>
     </None>
-    <None Include="CAT_PACIENTES_B.xss">
+    <None Include="DATASET\CAT_PACIENTES_B.xss">
       <DependentUpon>CAT_PACIENTES_B.xsd</DependentUpon>
     </None>
     <None Include="My Project\Settings.settings">
