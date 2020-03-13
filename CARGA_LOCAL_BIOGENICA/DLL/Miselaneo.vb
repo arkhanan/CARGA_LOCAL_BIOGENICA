@@ -214,8 +214,7 @@ Public Class Miselaneo
             Next
             MM = TY.GetMethod(MIF(MI).Name)
             O = Activator.CreateInstance(TY)
-            DLL_INSTANCIA.Add(equipo, O)
-            DLL_METODO.Add(equipo, MM)
+
             Return "OK"
         Catch ex As Exception
             Return "dll No Encontrado"
@@ -437,5 +436,41 @@ Public Class Miselaneo
 
         Return myTable
     End Function
+
+    Public Function DatatableToExcel(ByVal aDataTable As DataTable) As Boolean
+        Dim myExcel As New Microsoft.Office.Interop.Excel.Application
+
+        Try
+            ' Excel.Application
+            myExcel.Application.Workbooks.Add()
+            myExcel.Visible = True
+            Dim myColumn As DataColumn
+            Dim colIndex As Integer
+            Dim rowIndex As Integer
+            For Each myColumn In aDataTable.Columns
+                colIndex += 1
+                myExcel.Cells(1, colIndex) = myColumn.ColumnName
+            Next
+
+            Dim myRow As DataRow
+            rowIndex = 1
+            For Each myRow In aDataTable.Rows
+                rowIndex += 1
+                colIndex = 0
+                Dim myColumn2 As DataColumn
+                For Each myColumn2 In aDataTable.Columns
+                    colIndex += 1
+                    myExcel.Cells(rowIndex, colIndex) = myRow(
+                      myColumn2.ColumnName)
+                Next myColumn2
+            Next myRow
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        myExcel.Quit()
+
+    End Function
+
 
 End Class

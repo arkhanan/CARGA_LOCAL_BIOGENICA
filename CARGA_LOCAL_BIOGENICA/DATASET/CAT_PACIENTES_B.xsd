@@ -25,7 +25,7 @@
               <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
               <Mapping SourceColumn="A.P" DataSetColumn="A.P" />
               <Mapping SourceColumn="A.M" DataSetColumn="A.M" />
-              <Mapping SourceColumn="edad" DataSetColumn="edad" />
+              <Mapping SourceColumn="EDAD" DataSetColumn="EDAD" />
               <Mapping SourceColumn="ESTADO" DataSetColumn="ESTADO" />
               <Mapping SourceColumn="MUNICIPIO" DataSetColumn="MUNICIPIO" />
               <Mapping SourceColumn="sexo" DataSetColumn="sexo" />
@@ -67,7 +67,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="edad" msprop:Generator_ColumnVarNameInTable="columnedad" msprop:Generator_ColumnPropNameInRow="edad" msprop:Generator_ColumnPropNameInTable="edadColumn" msprop:Generator_UserColumnName="edad" type="xs:int" minOccurs="0" />
+              <xs:element name="EDAD" msprop:Generator_ColumnVarNameInTable="columnEDAD" msprop:Generator_ColumnPropNameInRow="EDAD" msprop:Generator_ColumnPropNameInTable="EDADColumn" msprop:Generator_UserColumnName="EDAD" type="xs:int" minOccurs="0" />
               <xs:element name="ESTADO" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnESTADO" msprop:Generator_ColumnPropNameInRow="ESTADO" msprop:Generator_ColumnPropNameInTable="ESTADOColumn" msprop:Generator_UserColumnName="ESTADO" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

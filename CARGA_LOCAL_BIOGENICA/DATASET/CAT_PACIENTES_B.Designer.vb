@@ -289,7 +289,7 @@ Partial Public Class CAT_PACIENTES_B
         
         Private _columnA_M As Global.System.Data.DataColumn
         
-        Private columnedad As Global.System.Data.DataColumn
+        Private columnEDAD As Global.System.Data.DataColumn
         
         Private columnESTADO As Global.System.Data.DataColumn
         
@@ -364,9 +364,9 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property edadColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property EDADColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnedad
+                Return Me.columnEDAD
             End Get
         End Property
         
@@ -455,9 +455,9 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddCAT_PACIENTES_BRow(ByVal nombre As String, ByVal _A_P As String, ByVal _A_M As String, ByVal edad As Integer, ByVal ESTADO As String, ByVal MUNICIPIO As String, ByVal sexo As String, ByVal CARGA_MUESTRA As String, ByVal asistencia As Boolean, ByVal FECHA As Date) As CAT_PACIENTES_BRow
+        Public Overloads Function AddCAT_PACIENTES_BRow(ByVal nombre As String, ByVal _A_P As String, ByVal _A_M As String, ByVal EDAD As Integer, ByVal ESTADO As String, ByVal MUNICIPIO As String, ByVal sexo As String, ByVal CARGA_MUESTRA As String, ByVal asistencia As Boolean, ByVal FECHA As Date) As CAT_PACIENTES_BRow
             Dim rowCAT_PACIENTES_BRow As CAT_PACIENTES_BRow = CType(Me.NewRow,CAT_PACIENTES_BRow)
-            Dim columnValuesArray() As Object = New Object() {nombre, _A_P, _A_M, edad, ESTADO, MUNICIPIO, sexo, CARGA_MUESTRA, asistencia, FECHA}
+            Dim columnValuesArray() As Object = New Object() {nombre, _A_P, _A_M, EDAD, ESTADO, MUNICIPIO, sexo, CARGA_MUESTRA, asistencia, FECHA}
             rowCAT_PACIENTES_BRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCAT_PACIENTES_BRow)
             Return rowCAT_PACIENTES_BRow
@@ -483,7 +483,7 @@ Partial Public Class CAT_PACIENTES_B
             Me.columnnombre = MyBase.Columns("nombre")
             Me._columnA_P = MyBase.Columns("A.P")
             Me._columnA_M = MyBase.Columns("A.M")
-            Me.columnedad = MyBase.Columns("edad")
+            Me.columnEDAD = MyBase.Columns("EDAD")
             Me.columnESTADO = MyBase.Columns("ESTADO")
             Me.columnMUNICIPIO = MyBase.Columns("MUNICIPIO")
             Me.columnsexo = MyBase.Columns("sexo")
@@ -505,8 +505,8 @@ Partial Public Class CAT_PACIENTES_B
             Me._columnA_M.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnA_M")
             Me._columnA_M.ExtendedProperties.Add("Generator_UserColumnName", "A.M")
             MyBase.Columns.Add(Me._columnA_M)
-            Me.columnedad = New Global.System.Data.DataColumn("edad", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnedad)
+            Me.columnEDAD = New Global.System.Data.DataColumn("EDAD", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEDAD)
             Me.columnESTADO = New Global.System.Data.DataColumn("ESTADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnESTADO)
             Me.columnMUNICIPIO = New Global.System.Data.DataColumn("MUNICIPIO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -721,16 +721,16 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property edad() As Integer
+        Public Property EDAD() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableCAT_PACIENTES_B.edadColumn),Integer)
+                    Return CType(Me(Me.tableCAT_PACIENTES_B.EDADColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'edad' in table 'CAT_PACIENTES_B' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'EDAD' in table 'CAT_PACIENTES_B' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableCAT_PACIENTES_B.edadColumn) = value
+                Me(Me.tableCAT_PACIENTES_B.EDADColumn) = value
             End Set
         End Property
         
@@ -862,14 +862,14 @@ Partial Public Class CAT_PACIENTES_B
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsedadNull() As Boolean
-            Return Me.IsNull(Me.tableCAT_PACIENTES_B.edadColumn)
+        Public Function IsEDADNull() As Boolean
+            Return Me.IsNull(Me.tableCAT_PACIENTES_B.EDADColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetedadNull()
-            Me(Me.tableCAT_PACIENTES_B.edadColumn) = Global.System.Convert.DBNull
+        Public Sub SetEDADNull()
+            Me(Me.tableCAT_PACIENTES_B.EDADColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1114,7 +1114,7 @@ Namespace CAT_PACIENTES_BTableAdapters
             tableMapping.ColumnMappings.Add("nombre", "nombre")
             tableMapping.ColumnMappings.Add("A.P", "A.P")
             tableMapping.ColumnMappings.Add("A.M", "A.M")
-            tableMapping.ColumnMappings.Add("edad", "edad")
+            tableMapping.ColumnMappings.Add("EDAD", "EDAD")
             tableMapping.ColumnMappings.Add("ESTADO", "ESTADO")
             tableMapping.ColumnMappings.Add("MUNICIPIO", "MUNICIPIO")
             tableMapping.ColumnMappings.Add("sexo", "sexo")

@@ -4,7 +4,7 @@ Imports DevExpress.XtraBars.Docking2010
 
 Partial Public Class Form1
     Dim Exportar As Exportar
-    'Dim Consultar As Consultar
+    Dim Consultar As Consultar
     Dim Importar As Importar
     Dim sql As New SQL
     'Dim test As Tester
@@ -35,7 +35,8 @@ Partial Public Class Form1
                 Select Case FORMULARIO
                     Case "Importar"
                         Importar.SimpleButton1_Click()
-                    Case "CONSULTAR"
+                    Case "Exportar"
+                        Exportar.PROCESAR()
                 End Select
 
             Case "BTPaciente"
@@ -45,7 +46,7 @@ Partial Public Class Form1
 
                     Case "CONSULTAR"
 
-                        'Consultar.Guardar()
+                        Consultar.Guardar()
 
                 End Select
 
@@ -119,24 +120,24 @@ Partial Public Class Form1
         DevExpress.UserSkins.BonusSkins.Register()
         DevExpress.Skins.SkinManager.EnableFormSkins()
         DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = "Darkroom"
-        'Consultar = New Consultar
-        'Consultar.Dock = DockStyle.Fill
-        ''Consultar.CVE_EQUIPO = CVE_EQUIPO
-        'Dim panel As New Panel
-        'Me.Controls.Add(panel)
-        'panel.Dock = DockStyle.Fill
-        'panel.Controls.Add(Consultar)
-        'FORMULARIO = "CONSULTAR"
-        'WindowsUIButtonPanel2.Buttons(0).Properties.Visible = True
-        'WindowsUIButtonPanel2.Buttons(1).Properties.Visible = False
-        'WindowsUIButtonPanel2.Buttons(2).Properties.Visible = True
+        Consultar = New Consultar
+        Consultar.Dock = DockStyle.Fill
+        'Consultar.CVE_EQUIPO = CVE_EQUIPO
+        Dim panel As New Panel
+        Me.Controls.Add(panel)
+        panel.Dock = DockStyle.Fill
+        panel.Controls.Add(Consultar)
+        FORMULARIO = "CONSULTAR"
+        WindowsUIButtonPanel2.Buttons(0).Properties.Visible = True
+        WindowsUIButtonPanel2.Buttons(1).Properties.Visible = False
+        WindowsUIButtonPanel2.Buttons(2).Properties.Visible = True
 
-        'Panel.BringToFront()
-        'Try
-        '    sql.Conectar()
-        'Catch ex As Exception
-        '    MsgBox("Error")
-        'End Try
+        panel.BringToFront()
+        Try
+            sql.Conectar()
+        Catch ex As Exception
+            MsgBox("Error")
+        End Try
 
 
 

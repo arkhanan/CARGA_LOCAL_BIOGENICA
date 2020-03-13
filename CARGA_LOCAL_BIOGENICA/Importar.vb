@@ -1,7 +1,6 @@
 ﻿
 Imports System.IO
-
-
+Imports DevExpress.XtraReports.UI
 
 Public Class Importar
     Dim m As New Miselaneo
@@ -41,10 +40,6 @@ Public Class Importar
                 dt.Rows(I).Item("CARGA_CLAVE") = TECarga.Text
             Next
 
-
-
-
-
             ReDim sql.ParametersX_Global(1)
             sql.ParametersX_Global(0) = New SqlClient.SqlParameter("@CLAVE_MUESTRA", TECarga.Text)
             Dim sX = sql.fGuardar_O_EliminarXProcedure_DevuelveId("CAT_PACIENTE_E", "@Parametro", sql.ParametersX_Global)
@@ -53,8 +48,6 @@ Public Class Importar
             sql.ParametersX_Global(0) = New SqlClient.SqlParameter("@CVE_MUESTRA", TECarga.Text)
             sql.ParametersX_Global(1) = New SqlClient.SqlParameter("@FECHA", DEFecha.EditValue)
             sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B_MASIVA", sql.ParametersX_Global)
-
-
 
             For i As Integer = 0 To dt.Rows.Count - 1
                 ReDim sql.ParametersX_Global(10)
@@ -81,10 +74,6 @@ Public Class Importar
         sql.datagrid(Me.CAT_PACIENTES_B, Me.CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B_MASIVA", sql.ParametersX_Global)
         TECarga.Text = Now.ToString("ddMMyyyyHHMMss")
 
-
-
-
-
     End Sub
 
     Private Sub Importar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -102,7 +91,16 @@ Public Class Importar
         sql.dataset(Me.Cat_Municipios.pCAT_MUNICIPIOS_B, "pCAT_MUNICIPIOS_B", sql.ParametersX_Global)
     End Sub
 
+    Private Sub RepositoryItemButtonEdit1_ButtonClick(sender As Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles RepositoryItemButtonEdit1.ButtonClick
+        Dim elemento = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "nombre")
+        ID_REPORTE = elemento
+        'Dim XTRA As XtraReport = New XtraReport(REPORTE_ETIQUETA)
 
 
+        'XTRA.CreateDocument()
+        'Dim printTool As New ReportPrintTool(XTRA)
+        'printTool.PrintDialog()
 
+
+    End Sub
 End Class
