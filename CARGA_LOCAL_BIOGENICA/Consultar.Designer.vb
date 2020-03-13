@@ -21,13 +21,13 @@ Partial Class Consultar
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.cPACIENTE_FECHA_NAC = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.cPACIENTE_FECHA_NAC = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TxtAno = New System.Windows.Forms.TextBox()
         Me.TxtMes = New System.Windows.Forms.TextBox()
         Me.TxtDia = New System.Windows.Forms.TextBox()
+        Me.TxtAno = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.RadioB_F = New System.Windows.Forms.RadioButton()
         Me.RadioB_M = New System.Windows.Forms.RadioButton()
@@ -71,6 +71,8 @@ Partial Class Consultar
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PCATESTADOSBBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,17 +89,18 @@ Partial Class Consultar
         CType(Me.CAT_PACIENTES_B, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemButtonEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.cPACIENTE_FECHA_NAC)
         Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Controls.Add(Me.cPACIENTE_FECHA_NAC)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.TxtAno)
         Me.GroupBox2.Controls.Add(Me.TxtMes)
         Me.GroupBox2.Controls.Add(Me.TxtDia)
+        Me.GroupBox2.Controls.Add(Me.TxtAno)
         Me.GroupBox2.Location = New System.Drawing.Point(415, 211)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(222, 121)
@@ -105,27 +108,27 @@ Partial Class Consultar
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Edad Paciente * :"
         '
-        'cPACIENTE_FECHA_NAC
-        '
-        Me.cPACIENTE_FECHA_NAC.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.cPACIENTE_FECHA_NAC.Location = New System.Drawing.Point(90, 20)
-        Me.cPACIENTE_FECHA_NAC.Name = "cPACIENTE_FECHA_NAC"
-        Me.cPACIENTE_FECHA_NAC.Size = New System.Drawing.Size(121, 21)
-        Me.cPACIENTE_FECHA_NAC.TabIndex = 12
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(164, 63)
+        Me.Label6.Location = New System.Drawing.Point(151, 63)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(27, 13)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Dias"
         '
+        'cPACIENTE_FECHA_NAC
+        '
+        Me.cPACIENTE_FECHA_NAC.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.cPACIENTE_FECHA_NAC.Location = New System.Drawing.Point(76, 20)
+        Me.cPACIENTE_FECHA_NAC.Name = "cPACIENTE_FECHA_NAC"
+        Me.cPACIENTE_FECHA_NAC.Size = New System.Drawing.Size(121, 21)
+        Me.cPACIENTE_FECHA_NAC.TabIndex = 12
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(87, 63)
+        Me.Label5.Location = New System.Drawing.Point(80, 63)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(37, 13)
         Me.Label5.TabIndex = 10
@@ -134,32 +137,32 @@ Partial Class Consultar
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(8, 63)
+        Me.Label4.Location = New System.Drawing.Point(13, 63)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(31, 13)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Años"
         '
-        'TxtAno
-        '
-        Me.TxtAno.Location = New System.Drawing.Point(11, 79)
-        Me.TxtAno.Name = "TxtAno"
-        Me.TxtAno.Size = New System.Drawing.Size(49, 21)
-        Me.TxtAno.TabIndex = 9
-        '
         'TxtMes
         '
-        Me.TxtMes.Location = New System.Drawing.Point(90, 79)
+        Me.TxtMes.Location = New System.Drawing.Point(78, 81)
         Me.TxtMes.Name = "TxtMes"
         Me.TxtMes.Size = New System.Drawing.Size(49, 21)
         Me.TxtMes.TabIndex = 10
         '
         'TxtDia
         '
-        Me.TxtDia.Location = New System.Drawing.Point(167, 79)
+        Me.TxtDia.Location = New System.Drawing.Point(148, 81)
         Me.TxtDia.Name = "TxtDia"
         Me.TxtDia.Size = New System.Drawing.Size(49, 21)
         Me.TxtDia.TabIndex = 11
+        '
+        'TxtAno
+        '
+        Me.TxtAno.Location = New System.Drawing.Point(15, 81)
+        Me.TxtAno.Name = "TxtAno"
+        Me.TxtAno.Size = New System.Drawing.Size(49, 21)
+        Me.TxtAno.TabIndex = 9
         '
         'GroupBox1
         '
@@ -405,7 +408,7 @@ Partial Class Consultar
         '
         'colsexo
         '
-        Me.colsexo.FieldName = "sexo"
+        Me.colsexo.FieldName = "CARGA_MUESTRA"
         Me.colsexo.Name = "colsexo"
         Me.colsexo.Visible = True
         Me.colsexo.VisibleIndex = 7
@@ -452,7 +455,7 @@ Partial Class Consultar
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(92, 188)
+        Me.Button1.Location = New System.Drawing.Point(221, 52)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 25
@@ -475,10 +478,28 @@ Partial Class Consultar
         Me.Label9.TabIndex = 27
         Me.Label9.Text = "ID"
         '
+        'NumericUpDown2
+        '
+        Me.NumericUpDown2.Location = New System.Drawing.Point(485, 341)
+        Me.NumericUpDown2.Name = "NumericUpDown2"
+        Me.NumericUpDown2.Size = New System.Drawing.Size(8, 21)
+        Me.NumericUpDown2.TabIndex = 28
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(307, 52)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 29
+        Me.Button2.Text = "Limpiar"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Consultar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.NumericUpDown2)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button1)
@@ -516,6 +537,7 @@ Partial Class Consultar
         CType(Me.CAT_PACIENTES_B, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemButtonEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -572,4 +594,6 @@ Partial Class Consultar
     Friend WithEvents RepositoryItemButtonEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents NumericUpDown2 As NumericUpDown
+    Friend WithEvents Button2 As Button
 End Class

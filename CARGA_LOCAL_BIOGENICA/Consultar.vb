@@ -150,7 +150,7 @@
                 SQL.ParametersX_Global(3) = New SqlClient.SqlParameter("@Materno", cMaterno.Text)
                 SQL.ParametersX_Global(4) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.EditValue)
                 SQL.ParametersX_Global(5) = New SqlClient.SqlParameter("@Cve_Municipio", Me.cbbMunicipio.EditValue)
-                SQL.ParametersX_Global(6) = New SqlClient.SqlParameter("@Fecha_Nacimiento", TxtAno.Text)
+                SQL.ParametersX_Global(6) = New SqlClient.SqlParameter("@EDAD", TxtAno.Text)
 
                 If RadioB_M.Checked = True Then
                     SQL.ParametersX_Global(7) = New SqlClient.SqlParameter("@Sexo", "MASCULINO")
@@ -167,7 +167,7 @@
                 SQL.ParametersX_Global(3) = New SqlClient.SqlParameter("@Materno", cMaterno.Text)
                 SQL.ParametersX_Global(4) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.EditValue)
                 SQL.ParametersX_Global(5) = New SqlClient.SqlParameter("@Cve_Municipio", Me.cbbMunicipio.EditValue)
-                SQL.ParametersX_Global(6) = New SqlClient.SqlParameter("@Fecha_Nacimiento", TxtAno.Text)
+                SQL.ParametersX_Global(6) = New SqlClient.SqlParameter("@EDAD", TxtAno.Text)
 
                 If RadioB_M.Checked = True Then
                     SQL.ParametersX_Global(7) = New SqlClient.SqlParameter("@Sexo", "MASCULINO")
@@ -317,19 +317,37 @@
 
 
 
+        '  TextBox1.Text = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Id")
+        cNombre.Text = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "nombre")
+        cPaterno.Text = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "A.P")
+        cMaterno.Text = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "A.M")
+        TxtAno.Text = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "EDAD")
+        cbbEstado.Text = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "ESTADO")
+        cbbMunicipio.Text = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "MUNICIPIO")
 
-        Dim nombre = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "nombre")
-        Dim PATERNO = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "A.P")
-        Dim MATERNO = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "A.M")
-        Dim EDAD = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "EDAD")
-        Dim ESTADO = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "ESTADO")
-        Dim MUNICIPIO = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "MUNICIPIO")
-        Dim FNAC = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "")
+
+        If GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "sexo") = "MASCULINO" Then
+
+            RadioB_M.Checked = True
+
+
+        Else
+
+            RadioB_F.Checked = True
+        End If
+
+
+
 
         '    Dim result As Integer = MessageBox.Show("Esta Seguro de Eliminar" & vbCrLf & "Equipo: " & equipo & vbCrLf & "Elemento: " & elemento, "Advertencia", MessageBoxButtons.YesNo)
 
 
-        cNombre.Text = nombre
+
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        limpiar()
 
     End Sub
 End Class
