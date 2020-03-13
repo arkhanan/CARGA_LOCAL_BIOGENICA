@@ -8,6 +8,23 @@
 
 
 
+    Sub consultar()
+
+        ReDim SQL.ParametersX_Global(3)
+        SQL.ParametersX_Global(0) = New SqlClient.SqlParameter("@Paterno", cPaterno.Text)
+        SQL.ParametersX_Global(1) = New SqlClient.SqlParameter("@Materno", cMaterno.Text)
+        SQL.ParametersX_Global(2) = New SqlClient.SqlParameter("@Nombre", cNombre.Text)
+        SQL.dataset(CAT_PACIENTES_B._CAT_PACIENTES_B, "CAT_PACIENTES_B", SQL.ParametersX_Global)
+
+
+    End Sub
+
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        consultar()
+
+    End Sub
 
 
 
@@ -133,7 +150,7 @@
                 SQL.ParametersX_Global(3) = New SqlClient.SqlParameter("@Materno", cMaterno.Text)
                 SQL.ParametersX_Global(4) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.EditValue)
                 SQL.ParametersX_Global(5) = New SqlClient.SqlParameter("@Cve_Municipio", Me.cbbMunicipio.EditValue)
-                SQL.ParametersX_Global(6) = New SqlClient.SqlParameter("@Fecha_Nacimiento", Me.cPACIENTE_FECHA_NAC.Value)
+                SQL.ParametersX_Global(6) = New SqlClient.SqlParameter("@Fecha_Nacimiento", TxtAno.Text)
 
                 If RadioB_M.Checked = True Then
                     SQL.ParametersX_Global(7) = New SqlClient.SqlParameter("@Sexo", "MASCULINO")
@@ -150,7 +167,7 @@
                 SQL.ParametersX_Global(3) = New SqlClient.SqlParameter("@Materno", cMaterno.Text)
                 SQL.ParametersX_Global(4) = New SqlClient.SqlParameter("@Cve_Estado", cbbEstado.EditValue)
                 SQL.ParametersX_Global(5) = New SqlClient.SqlParameter("@Cve_Municipio", Me.cbbMunicipio.EditValue)
-                SQL.ParametersX_Global(6) = New SqlClient.SqlParameter("@Fecha_Nacimiento", Me.cPACIENTE_FECHA_NAC.Value)
+                SQL.ParametersX_Global(6) = New SqlClient.SqlParameter("@Fecha_Nacimiento", TxtAno.Text)
 
                 If RadioB_M.Checked = True Then
                     SQL.ParametersX_Global(7) = New SqlClient.SqlParameter("@Sexo", "MASCULINO")
@@ -188,11 +205,27 @@
             MessageBox.Show("Error: " & ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-
+        limpiar()
     End Sub
 
 
+    Sub limpiar()
 
+        cNombre.Text = Nothing
+        cPaterno.Text = Nothing
+        cMaterno.Text = Nothing
+        TxtAno.Text = Nothing
+        TxtMes.Text = Nothing
+        TxtDia.Text = Nothing
+        RadioB_M.Checked = Nothing
+        RadioB_F.Checked = Nothing
+        cbbEstado.EditValue = 0
+        cbbMunicipio.EditValue = 0
+
+
+
+
+    End Sub
 
     Private Sub TxtAno_KeyUp(sender As Object, e As KeyEventArgs) Handles TxtAno.KeyUp
         Dim aa = e.KeyValue
@@ -280,5 +313,23 @@
         IsSelected = True
     End Sub
 
+    Private Sub RepositoryItemButtonEdit1_ButtonClick(sender As Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles RepositoryItemButtonEdit1.ButtonClick
 
+
+
+
+        Dim nombre = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "nombre")
+        Dim PATERNO = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "A.P")
+        Dim MATERNO = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "A.M")
+        Dim EDAD = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "EDAD")
+        Dim ESTADO = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "ESTADO")
+        Dim MUNICIPIO = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "MUNICIPIO")
+        Dim FNAC = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "")
+
+        '    Dim result As Integer = MessageBox.Show("Esta Seguro de Eliminar" & vbCrLf & "Equipo: " & equipo & vbCrLf & "Elemento: " & elemento, "Advertencia", MessageBoxButtons.YesNo)
+
+
+        cNombre.Text = nombre
+
+    End Sub
 End Class
